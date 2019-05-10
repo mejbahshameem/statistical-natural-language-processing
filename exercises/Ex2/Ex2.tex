@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
 
 \begin{document}
 \section{Probability Theory Review}
@@ -20,5 +21,54 @@
 	\item[d)]
 	$D\cap E$ gets satisfied by the cases (1,2),(2,3),(3,4),(4,5),(5,6) which implies $P(D\cap E)=\frac{5}{36}$
 	Since $$P(D\cap E) = \frac{5}{36} \neq \frac{55}{216}=\frac{5}{12}*\frac{11}{18} = P(D)P(E)$$ we know that D and E are dependend.
+\end{itemize}
+\subsection{Communication through a Noisy Channel}
+\begin{itemize}
+	\item[a)]
+	For a random variable of source X, the probability mass function can be denoted as:
+	
+	$$P_X(x_k)=\ P(X=x_k), \ for\: k={0,1}$$
+    So for the source symbol 0 
+    $$ P_X(0)=P(X=0)=p$$
+    and for 1 
+    $$ P_X(1)=P(X=1)=1-p$$
+    \item[b)]
+	Y is the random variable of the receiver symbol which can have the value 0 and 1. So the mass function of Y given X which implies the channel's error probability  is as follows:
+	
+	$$P_Y(y_k)=\ P(Y=y_k), \ for\: k={0,1}$$
+	
+    $$P_Y(0 \: | \:(X=x_k=1))= \epsilon_1$$
+    $$P_Y(1 \: | \:(X=x_k=0))= \epsilon_0$$
+
+    \item[c)]
+    The probability of transmitting the symbol sequence "1001110" is:
+    $$(1-p)^4 . p^3$$
+	\item[d)]
+	Let, c denotes receiving the signal correctly. The probability of randomly chosen symbol which is received correctly is:
+	$$ P(c) = P(c \: | \: 0 ).P(0)+ P(c \: |\:   1).P(1)$$
+	$$=p.(1-\epsilon_0)+(1-p).(1-\epsilon_1)$$
+	
+	\item[e)]
+	The probability of receiving the transmitted symbol sequence 1011 correctly is:
+	$$ P(C) = P(1\:\: C)^3.P(0\:\: C), where\:C\:=\:receiving \: correctly$$ 
+	$$=(1-\epsilon_1)^3.(1-\epsilon_0)$$
+	\item[f)]
+	The probability of receiving "1101" is as follows: [R=Receiving, T=Transmitting]
+	$$P(R\:1101)=(P(R1\:|\:T1).P(T1)+$$ 
+	$$P(R1\: |\: T0).P(T0))^3 . P(R0\: | \:T1).P(T1)+
+	P(R0\: |\: T0).P(T0))$$
+	$$=((1-\epsilon_1).(1-p)+\epsilon_0.p)^3.(\epsilon_0.(1-p)+(1-\epsilon_0).p)$$
+	\item[g)]
+	Probability of receiving a transmitted O[000] correctly after introducing redundancy:
+	$$P(000,001,010,100\:|\:000)$$
+	$$=P(000\:|\:000)+P(001\:|\:000)+P(010\:|\:000)+P(100\:|\:000)$$
+	$$=(1-\epsilon_0)^3+3.(1-\epsilon_0)^2.\epsilon_0$$
+   \item[h)] 
+    The probability of transmitting 0[000] that the received signal is 101:
+    $$P(000\:|\:101)=\frac{P(000\land101)}{P(101)}$$
+    $$=\frac{P(101\:|\:000).P(000)}{P(101\:|\:000).P(000)+P(101\:|\:111).P(111)}$$
+    $$ \frac{\epsilon_0^2(1-\epsilon_0).p}{\epsilon_0^2(1-\epsilon_0).p+(1-\epsilon_1)^2.\epsilon_1.(1-p)} $$
+	\item[i)]
+	The noisy channel can be a good model of human communication with natural languages. It actually removes the part of guessing by getting close to the optimal channel capacity. Evaluating the results of the design assists to develop the system even more. By applying some variants like the question g, it can be designed such a way that the optimal performance is more achievable. It has its impact on Handwriting recognition, Text Generation, Machine Translation and so on.   
 \end{itemize}
 \end{document}
