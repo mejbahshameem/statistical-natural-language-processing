@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 \begin{document}
 \section{Probability Theory Review}
@@ -70,5 +71,51 @@
     $$ \frac{\epsilon_0^2(1-\epsilon_0).p}{\epsilon_0^2(1-\epsilon_0).p+(1-\epsilon_1)^2.\epsilon_1.(1-p)} $$
 	\item[i)]
 	The noisy channel can be a good model of human communication with natural languages. It actually removes the part of guessing by getting close to the optimal channel capacity. Evaluating the results of the design assists to develop the system even more. By applying some variants like the question g, it can be designed such a way that the optimal performance is more achievable. It has its impact on Handwriting recognition, Text Generation, Machine Translation and so on.   
+\end{itemize}
+\section{Character N-grams and Entropy}
+\subsection{N-grams Frequency Analysis}
+\subsection{N-gram Probability Distributions}
+\begin{itemize}
+	\item[a)]
+	see prob\_dist.py
+    We gave out the probability for an empty history if for the given historie no possible following character was found in the n-grams to ensure that the sum of the probability distribution always sums up to one. This was tested with assert and different histories.
+    \item[b)]Below are the plots for the probability distribution for the histories `', `n', `un' and `gun'. We can observe that with a growing history we get less and less possible characters based on the n-grams collected on the sample. In the first case with an empty history, every character is possible even if some are more probable than others. With `n' as history, some of the characters get eliminated. With the biggest history `gun' we can see that there are only two possible characters that can follow: g and s, where g has a high probability since it was more frequent in the sample.
+    \includegraphics[width=\textwidth]{./plots/emptyhistory.png}
+	\includegraphics[width=\textwidth]{./plots/nhistory.png}
+	\includegraphics[width=\textwidth]{./plots/unhistory.png}
+	\includegraphics[width=\textwidth]{./plots/gunhistory.png}
+	\item[c)]
+	see prob\_dist.py\\
+	\begin{table}[h]
+		\begin{tabular}{l|c}
+		 & Entropy \\ \hline
+		 `'& 2.89886\\
+		 `n'& 2.4599 \\
+		 `un'& 1.22248\\
+		 `gun'& 0.09247 \\
+		\end{tabular}
+	\end{table}
+	We can see that the entropy grows to zero when the history grows, which is based on the fact that the probabilities are distributed on less characters with the minimum entropy 0 at one character with 100\%probability.
+	\item[d)]
+	Based on the observation in c) we know that the maximum entropy we be achieved if the probability would be evenly distributed among all characters, which would in the german alphabet result in the entropy:
+	$$30* \frac{1}{30} * log(\frac{1}{30}) = log(\frac{1}{30}) = 1.47712125472  $$
+
+	\item[e)]
+	\begin{table}[h]
+		\begin{tabular}{l|c}
+		 & Entropy \\ \hline
+		 `a'& 2.59749\\
+		 `d'& 1.38149 \\
+		 `z'& 1.86678\\
+		 `c'& 0.55237 \\
+		\end{tabular}
+	\end{table}
+	Below we have the plots for the histories `a', `d', `z' and `c'. This shows that not only the size of the historie is important for the probability distribution like we saw in part b). Even when the history has only one single character the distribution and with that the entropy can change a lot. The vocal a enables a lot of possible following characters based on the n-grams, which leads to a high entropy. d and z can lead to all the different letters in the alphabet but only 3 to 4 are realy frequent in the n-grams. This leads to a smaller entropy than for example the character a. The history c has a high probability to be followed by h, since `ch' is one combination often used in the german language. Since it is only one case with a realy high probability the entropy is quite small.
+
+\includegraphics[width=\textwidth]{./plots/ahistory}
+\includegraphics[width=\textwidth]{./plots/dhistory}
+\includegraphics[width=\textwidth]{./plots/zhistory}
+\includegraphics[width=\textwidth]{./plots/chistory}
+
 \end{itemize}
 \end{document}

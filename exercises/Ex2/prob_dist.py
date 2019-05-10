@@ -32,7 +32,7 @@ if __name__ == '__main__':
 	lan = 'de' # de or en
 	path = './corpora/' #path to the corpora folder
 
-	h = 'ung'
+	h = 'a'
 	S = list(string.ascii_lowercase)
 	if lan == 'de':
 		S = S + ['ä','ö','ü','ß']
@@ -47,7 +47,7 @@ if __name__ == '__main__':
 	E = entropy(prob_dist, S)
 	print(E)
 
-if True:    #turn to true if you want plot the distribution
+if False:    #turn to true if you want plot the distribution
 	plt.figure(num=1, figsize=(1,len(S)), dpi=None, facecolor=None, edgecolor=None, frameon=True, clear=False)
 	plt.plot(scalex=True, scaley=True, data=None)
 	plt.bar(prob_dist.keys(),prob_dist.values())

@@ -3,3 +3,7 @@ __pycache__
 exercises/*/corpora/
 *.log
 *.aux
+*.gz
+*.fdb_latexmk
+*.fls
+
