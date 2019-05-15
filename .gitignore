@@ -7,4 +7,5 @@ exercises/*/statistic*.json
 *.gz
 *.fdb_latexmk
 *.fls
+*.zip
 
