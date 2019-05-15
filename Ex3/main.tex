@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\begin{document}
+\section{Information Theory}
+\subsection{Entropy and Probability Distributions}
+\begin{itemize}
+	\item[a)]
+	The marginal distribution of X $=$ $$\{(\frac{1}{8}+\frac{1}{16}+\frac{1}{16}+\frac{1}{4}),(\frac{1}{16}+\frac{1}{8}+\frac{1}{16}+0),(\frac{1}{32}+\frac{1}{32}+\frac{1}{16}+0),(\frac{1}{32}+\frac{1}{32}+\frac{1}{16}+0)\}$$
+	$$=\{\frac{1}{2},\frac{1}{4},\frac{1}{8},\frac{1}{8}\}$$
+	
+	The marginal distribution of Y $=$ $$\{(\frac{1}{8}+\frac{1}{16}+\frac{1}{32}+\frac{1}{32}),(\frac{1}{16}+\frac{1}{8}+\frac{1}{32}+\frac{1}{32}),(\frac{1}{16}+\frac{1}{16}+\frac{1}{16}+\frac{1}{16}),(\frac{1}{4}+0+0+0)\}$$
+	$$=\{\frac{1}{4},\frac{1}{4},\frac{1}{4},\frac{1}{4}\}$$
+	
+	\item[b)]
+	The Entropy of X, H(X) $=$ 
+	$$=-\frac{1}{2}log_2\frac{1}{2}-\frac{1}{4}log_2\frac{1}{4}-\frac{1}{8}log_2\frac{1}{8}-\frac{1}{8}log_2\frac{1}{8}$$
+	$$=.5+.5+.375+.375$$
+	$$=1.75\: bits$$
+	
+	The Entropy of Y, H(Y) $=$ 
+	$$=4*(-\frac{1}{4}log_2\frac{1}{4})$$
+	$$=4*.5$$
+	$$=2\: bits$$
+	\item[c)]
+	$$H(X|Y)=\sum_{i=1}^{4} p(Y=i) H(X|Y=i)$$
+	$$=\frac{1}{4}H(\frac{1}{2},\frac{1}{4},\frac{1}{8},\frac{1}{8})+\frac{1}{4}H(\frac{1}{4},\frac{1}{2},\frac{1}{8},\frac{1}{8})+\frac{1}{4}H(\frac{1}{4},\frac{1}{4},\frac{1}{4},\frac{1}{4})+\frac{1}{4}H(1,0,0,0)$$
+	$$=\frac{1}{4}*\frac{7}{4}+\frac{1}{4}*\frac{7}{4}+\frac{1}{4}*2+\frac{1}{4}*0$$
+	$$=1.375\:bits$$
+	
+	$$H(Y|X)=H(X|Y)-H(X)+H(Y)$$
+	$$=1.375-1.75+2$$
+	$$=1.625\:bits$$
+	
+	$$H(X,Y)=H(Y|X)+H(X)$$
+	$$=1.625+1.75$$
+	$$=3.375\:bits$$
+	\item[d)]
+	The mutual information I(X;Y)
+	\begin{equation} 
+    I(X;Y)=H(X)-H(X|Y)
+    \end{equation}
+	$$=1.75-1.375$$
+	$$=0.375\: bits$$
+	If we calculate I(X;Y) as follows:
+	\begin{equation} 
+    I(X;Y)=H(Y)-H(Y|X)
+    \end{equation}
+    $$=2-1.625$$
+	$$=0.375\: bits$$
+    So, (1) and (2) are generating the same value which authenticates the validity of the symmetry property of the mutual information.
+\end{itemize}
+\end{document}
