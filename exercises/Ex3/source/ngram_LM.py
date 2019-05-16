@@ -34,7 +34,7 @@ def word_ngrams(sent, n):
             ngrams.append((sent[i],))
     else:
         for i in range(n,len(sent)+1):
-            ngrams.append(sent[i-n:i])
+            ngrams.append((sent[n-1],sent[n]))
 
     return ngrams
 
