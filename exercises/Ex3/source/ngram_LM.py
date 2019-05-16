@@ -52,16 +52,16 @@ class ngram_LM:
         self.V = len(vocab)
 
     # YOUR CODE HERE
-    # START BY MAKING THE RIGHT COUNTS FOR THIS PARTICULAR self.n 
-
-        
-       
+    # START BY MAKING THE RIGHT COUNTS FOR THIS PARTICULAR self.n    
    
+        self.ngram_counts = ngram_counts   
 
     def estimate_prob(self, history, word):
-        """Estimate probability of a word given a history."""
-        
-        # YOUR CODE HERE
+        if self.n == 1:
+            return self.ngram_counts[(word,)]/sum(self.ngram_counts[(word,)] for word in self.vocab)
+
+        if self.n > 1:
+            return self.ngram_counts[(history,word)]/sum(self.ngram_counts[(history,word)] for word in self.vocab)
 
     
     def estimate_smoothed_prob(self, history, word, alpha = 0.5):
@@ -88,13 +88,15 @@ class ngram_LM:
     def test_LM(self):
         """Test whether or not the probability mass sums up to one."""
         
+        print('TEST STARTED FOR n = '+str(n))
+
         precision = 10**-8
                  
         if self.n == 1:
                  
             P_sum = sum(self.estimate_prob('', w) for w in self.vocab)
             
-            #assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
+            assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
                  
         elif self.n == 2:
             histories = ['the', 'in', 'at', 'blue', 'white']
@@ -103,7 +105,7 @@ class ngram_LM:
                  
                 P_sum = sum(self.estimate_prob(h, w) for w in self.vocab)
                 
-                #assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one for history' + h
+                assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one for history' + h
                      
         print('TEST SUCCESSFUL!')
 
@@ -124,11 +126,12 @@ n = 1
 file = open(corpora, 'r')
 COUNTS = Counter()
 for line in file:
-    for i in range(1,3):
-       COUNTS.update(word_ngrams(line,1))
+    COUNTS.update(word_ngrams(line,n))
 file.seek(0, 0)
 VOCAB = tokenize(file.read())
 VOCAB = set(VOCAB)
+if n > 1 :
+    VOCAB.update(('<s>','</s>'))
 file.close() 
 unigram_LM = ngram_LM(n, COUNTS, VOCAB)
 
