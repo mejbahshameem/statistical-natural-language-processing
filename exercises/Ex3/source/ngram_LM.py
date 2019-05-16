@@ -33,7 +33,7 @@ def word_ngrams(sent, n):
         for i in range (len(sent)):
             ngrams.append((sent[i],))
     else:
-        for i in range(n,len(sent)+1):
+        for i in range(n,len(sent)):
             ngrams.append((sent[i-1],sent[i]))
 
     return ngrams
@@ -54,14 +54,21 @@ class ngram_LM:
     # YOUR CODE HERE
     # START BY MAKING THE RIGHT COUNTS FOR THIS PARTICULAR self.n    
    
-        self.ngram_counts = ngram_counts   
+        self.ngram_counts = ngram_counts
+        if n>1:
+        	self.unigram_counts = Counter()
+        	for word in self.ngram_counts.items():
+        		self.unigram_counts.update({(word[0][0],):word[1]})
+
+        	assert sum(ngram_counts.values()) == sum(self.unigram_counts.values())
+
 
     def estimate_prob(self, history, word):
         if self.n == 1:
-            return self.ngram_counts[(word,)]/sum(self.ngram_counts[(word,)] for word in self.vocab)
+            return self.ngram_counts[(word,)]/sum(self.ngram_counts.values())
 
         if self.n > 1:
-            return self.ngram_counts[(history,word)]/sum(self.ngram_counts[(history,word)] for word in self.vocab)
+            return self.ngram_counts[(history,word)]/self.unigram_counts[(history,)]
 
     
     def estimate_smoothed_prob(self, history, word, alpha = 0.5):
@@ -119,7 +126,7 @@ class ngram_LM:
 
 # ADD YOUR CODE TO COLLECT COUTNS AND CONSTRUCT VOCAB
 corpora = '../corpora/corpus.sent.en.train'
-n = 1
+n = 2
 
 # ONCE YOU HAVE N-GRAN COUNTS AND VOCAB, 
 # YOU CAN BUILD LM OBJECTS AS ...
