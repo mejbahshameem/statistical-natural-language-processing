@@ -51,4 +51,57 @@
 	$$=0.375\: bits$$
     So, (1) and (2) are generating the same value which authenticates the validity of the symmetry property of the mutual information.
 \end{itemize}
+\section{N -gram Language Models}
+\subsection{Language Model Training}
+\begin{itemize}
+	\item[a)] see ngram\_LM.py
+	\item[b)]
+	With the unigrams it is impossible to tell the genre sice we have no words which give us any context. In the bigrams we have `the world', but with world as the only word which could give us a context it is still impossible to tell the genre.
+
+	\begin{table}[h]
+	\begin{tabular}{l|c}
+		unigram & count\\\hline
+		the & 734066 \\
+		of &360504 \\
+		to &330708 \\
+		and &326187 \\
+		in &250687 \\
+		a &228170 \\
+		that &154963 \\
+		is &14967 \\
+		s &121474 \\
+		for &104848 \\
+		it &85982 \\
+		as &80903 \\
+		be &74177 \\
+		with &73328 \\
+		on &69736 \\
+	\end{tabular}
+	\end{table}
+	\begin{table}[h]
+		\begin{tabular}{l|c}
+		bigram & count \\\hline
+		of the & 82750 \\
+		in the & 65399 \\
+		to the & 32188 \\
+		and the & 27717 \\
+		on the & 20190 \\
+		it is & 19828 \\
+		to be & 18774 \\
+		that the & 15456 \\
+		for the & 17383 \\
+		the us & 16979 \\
+		the world & 16123 \\
+		with the & 15745 \\
+		by the & 14295 \\
+		of a & 13571 \\
+		at the & 13429  \\
+		\end{tabular}
+	\end{table}
+	\item[c)]
+	The Type Token ratio for both n is 7.65\% since the two extra tokens do not change the ratio in a meaningful way.
+ 	\item[d)] see ngram\_LM.py
+ 	\item[e)] Our implementation fullfills the test for both n.
+ 	\item[f)] 
+\end{itemize}
 \end{document}

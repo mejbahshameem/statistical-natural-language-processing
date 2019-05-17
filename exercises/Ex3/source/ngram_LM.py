@@ -136,6 +136,7 @@ for line in file:
     COUNTS.update(word_ngrams(line,n))
 file.seek(0, 0)
 VOCAB = tokenize(file.read())
+length = len(VOCAB)
 VOCAB = set(VOCAB)
 if n > 1 :
     VOCAB.update(('<s>','</s>'))
@@ -144,4 +145,11 @@ unigram_LM = ngram_LM(n, COUNTS, VOCAB)
 
 
 # THEN TEST YOUR IMPLEMENTATION AS ..
-unigram_LM.test_LM() 
+
+#unigram_LM.test_LM() 
+
+#15 most common words
+#print(COUNTS.most_common(15))
+
+#TTR
+print(float(len(VOCAB))/float(length))
