@@ -215,7 +215,9 @@ if __name__ == '__main__':
                   'I was at home yesterday.']
 
     scores = [bigram_LM.score_sentence(hyp) for hyp in hypotheses]
+    for h, s in zip(hypotheses, scores):
+        print('{} Score: {}'.format(h, s))
     translation = hypotheses[scores.index(min(scores))]
-    print('The most fluent translation: {}'.format(translation))
+    print('\nThe most fluent translation: {}'.format(translation))
 
 
