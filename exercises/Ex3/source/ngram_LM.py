@@ -186,10 +186,10 @@ if __name__ == '__main__':
     bigram_LM = ngram_LM(2, bigram_COUNTS, VOCAB)
 
     # THEN TEST YOUR IMPLEMENTATION AS ..
-    #unigram_LM.test_LM()
-    #bigram_LM.test_LM()
-    #unigram_LM.test_smoohted_LM()
-    #bigram_LM.test_smoohted_LM()
+    unigram_LM.test_LM()
+    bigram_LM.test_LM()
+    unigram_LM.test_smoohted_LM()
+    bigram_LM.test_smoohted_LM()
 
     #15 most common words
     print('\n most common unigrams:')
