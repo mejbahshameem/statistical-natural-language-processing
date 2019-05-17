@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{adjustbox}
 
 \begin{document}
 \section{Information Theory}
@@ -56,9 +57,10 @@
 \begin{itemize}
 	\item[a)] see ngram\_LM.py
 	\item[b)]
-	With the unigrams it is impossible to tell the genre sice we have no words which give us any context. In the bigrams we have `the world', but with world as the only word which could give us a context it is still impossible to tell the genre.
+	With the unigrams it is impossible to tell the genre sice we have no words which give us any context. In the bigrams we have `the world', but with world as the only word which could give us a context it is still impossible to tell the genre. See Table 1 and 2 down below.
 
 	\begin{table}[h]
+	\centering
 	\begin{tabular}{l|c}
 		unigram & count\\\hline
 		the & 734066 \\
@@ -77,8 +79,7 @@
 		with &73328 \\
 		on &69736 \\
 	\end{tabular}
-	\end{table}
-	\begin{table}[h]
+	\caption{Unigrams for part b)}
 		\begin{tabular}{l|c}
 		bigram & count \\\hline
 		of the & 82750 \\
@@ -97,11 +98,28 @@
 		of a & 13571 \\
 		at the & 13429  \\
 		\end{tabular}
+		\caption{Bigrams for part b)}
 	\end{table}
 	\item[c)]
 	The Type Token ratio for both n is 7.65\% since the two extra tokens do not change the ratio in a meaningful way.
  	\item[d)] see ngram\_LM.py
  	\item[e)] Our implementation fullfills the test for both n.
- 	\item[f)] 
+ 	\item[f)] See Table 3 down below.
+ 	\begin{table}[h]
+ 	\begin{adjustbox}{width=\columnwidth,center}
+ 	\begin{tabular}{l | l l l l l l l l l l}
+ 	word &1.&2.&3.&4.&5.&6.&7.&8.&9.&10.\\\hline
+blue &collar  &eyes & and&  throat&  $</s>$&  bond&  sky&  water&  ribbon&  or\\
+natural&resources  &gas&  resource&  disasters&  selection&  and& environment& capital&  disaster&  to\\
+green&energy  &economy& revolution&  growth&  light& jobs& and& technologies&  investment&  $</s>$\\
+artificial&intelligence&  islands& and& life& $</s>$& hyper& sweeteners& smile& photosynthesis& island\\
+white&house&  and&  $</s>$& men&  collar& man& women& americans& paper& people\\
+global&economy&  financial&  warming&  economic&  growth&  trade&  governance& gdp&  climate& imbalance\\
+black&sea&  and&  market&  $</s>$& hole& swan& hair& eyes& holes& carbo\\
+domestic&demand&  and&  political&  consumption& politics&  investment&  policy&  economic& market& savings\\
+\end{tabular}
+\end{adjustbox}
+\caption{solution for part f)}
+\end{table}
 \end{itemize}
 \end{document}

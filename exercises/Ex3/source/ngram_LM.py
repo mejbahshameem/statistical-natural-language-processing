@@ -4,7 +4,7 @@
 import math
 import re
 import time
-from collections import defaultdict, Counter
+from collections import defaultdict, Counter, OrderedDict
 #from nltk import ngrams
 
 
@@ -104,6 +104,13 @@ class ngram_LM:
             score += - self.logP(sent[i-1], sent[i])
         return score / M
  
+    def prob_dist(self,h):
+        prob = dict()
+        for word in self.vocab:
+            prob[word] = self.estimate_prob(h, word)
+        return sorted(prob.items(),reverse=True, key = 
+             lambda kv:(kv[1], kv[0]))
+
     def test_LM(self):
         """Test whether or not the probability mass sums up to one."""
         
@@ -179,17 +186,26 @@ if __name__ == '__main__':
     bigram_LM = ngram_LM(2, bigram_COUNTS, VOCAB)
 
     # THEN TEST YOUR IMPLEMENTATION AS ..
-    unigram_LM.test_LM()
-    bigram_LM.test_LM()
-    unigram_LM.test_smoohted_LM()
-    bigram_LM.test_smoohted_LM()
+    #unigram_LM.test_LM()
+    #bigram_LM.test_LM()
+    #unigram_LM.test_smoohted_LM()
+    #bigram_LM.test_smoohted_LM()
 
     #15 most common words
+    print('\n most common unigrams:')
     print(unigram_COUNTS.most_common(15))
+    print('\n most common bigrams:')
     print(bigram_COUNTS.most_common(15))
 
     #TTR
+    print('\n Type Token Ratio:')
     print(float(len(VOCAB))/float(length))
+    
+    #most likely words occuring afer ‘blue’,‘natural’,‘green’,‘artificial’,‘white’,‘global’,‘black’,‘domestic’
+    test_history =('blue','natural','green','artificial','white','global','black','domestic')
+    for word in test_history:
+        print('\nThe 10 most likely words following ' + word +' are:')
+        print(bigram_LM.prob_dist(word)[:10])
 
     # Translations assessment
     print('\nTRANSLATION ASSESSMENT')
