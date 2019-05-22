@@ -11,13 +11,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM_1.py">
+        <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="192" column="29" lean-forward="true" selection-start-line="192" selection-start-column="29" selection-end-line="192" selection-end-column="29" />
-              <folding>
-                <element signature="e#53#64#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="110">
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -76,10 +73,10 @@
         <option value="$PROJECT_DIR$/exercises/Ex2/cryptoanalysis.py" />
         <option value="$PROJECT_DIR$/exercises/Ex2/prob_dist.py" />
         <option value="$PROJECT_DIR$/exercises/Ex3/source/ngram_LM.py" />
-        <option value="$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py" />
         <option value="$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/yodish.sent" />
         <option value="$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/english.sent" />
         <option value="$PROJECT_DIR$/exercises/Ex4/source/ngram_LM_1.py" />
+        <option value="$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py" />
       </list>
     </option>
   </component>
@@ -106,19 +103,6 @@
               <item name="SNLP" type="b2602c69:ProjectViewProjectNode" />
               <item name="SNLP" type="462c0819:PsiDirectoryNode" />
               <item name="exercises" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SNLP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SNLP" type="462c0819:PsiDirectoryNode" />
-              <item name="exercises" type="462c0819:PsiDirectoryNode" />
-              <item name="Ex3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SNLP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SNLP" type="462c0819:PsiDirectoryNode" />
-              <item name="exercises" type="462c0819:PsiDirectoryNode" />
-              <item name="Ex3" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SNLP" type="b2602c69:ProjectViewProjectNode" />
@@ -262,7 +246,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exercises/Ex4/source/ngram_LM_1.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\79528\Desktop\Study\SNLP\SNLP\exercises\Ex4\source\ngram_LM.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -316,23 +300,23 @@
       <workItem from="1557091380006" duration="2055000" />
       <workItem from="1557347738647" duration="29209000" />
       <workItem from="1557998948321" duration="23593000" />
-      <workItem from="1558472109568" duration="21770000" />
+      <workItem from="1558472109568" duration="22331000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76627000" />
+    <option name="totallyTimeSpent" value="77188000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22390318" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22390318" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.63993454" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29787233" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -458,7 +442,7 @@
     <entry file="file://$PROJECT_DIR$/exercises/Ex3/1">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM_1.py">
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/corpus.sent.en.train">
@@ -518,13 +502,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM_1.py">
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="192" column="29" lean-forward="true" selection-start-line="192" selection-start-column="29" selection-end-line="192" selection-end-column="29" />
-          <folding>
-            <element signature="e#53#64#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="110">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
         </state>
       </provider>
     </entry>

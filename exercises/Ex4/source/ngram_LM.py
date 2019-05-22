@@ -3,8 +3,7 @@
 
 import math
 import re
-import time
-from collections import defaultdict, Counter
+from collections import Counter
 
 
 def tokenize(text):
@@ -14,14 +13,7 @@ def tokenize(text):
 
 def word_ngrams(sent, n):
     """Givne a sent as str return n-grams as a list of tuple"""
-    
-    # EXAMPLES 
-    # > word_ngrams('hello world', 1)
-    # [('hello',), ('world',)]
-    # > word_ngrams('hello world', 2)
-    # [('<s>', 'hello'), ('hello', 'world'), ('world', '</s>')]
 
-    # YOUR CODE HERE
     sent = tokenize(sent)
     if n > 1:
         sent.insert(0, '<s>')
@@ -108,22 +100,15 @@ class ngram_LM:
         """Test whether or not the probability mass sums up to one."""
         
         print('\nTEST STARTED FOR n = ' + str(self.n))
-
         precision = 10**-8
-                 
         if self.n == 1:
-                 
             P_sum = sum(self.estimate_prob('', w) for w in self.vocab)
-            
             assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
                  
         elif self.n == 2:
             histories = ['the', 'in', 'at', 'blue', 'white']
-                 
             for h in histories:
-                 
                 P_sum = sum(self.estimate_prob(h, w) for w in self.vocab)
-                
                 assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one for history' + h
                      
         print('Test successful!')
