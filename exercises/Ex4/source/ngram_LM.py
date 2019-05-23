@@ -1,5 +1,4 @@
 # coding: utf-8
-
 # SNLP - SoSe 2019 - ASSINGMENT IV
 
 import math
@@ -14,14 +13,8 @@ def tokenize(text):
 
 
 def word_ngrams(sent, n):
-    """Givne a sent as str return n-grams as a list of tuple"""    
-    # EXAMPLES 
-    # > word_ngrams('hello world', 1)
-    # [('hello',), ('world',)]
-    # > word_ngrams('hello world', 2)
-    # [('<s>', 'hello'), ('hello', 'world'), ('world', '</s>')]
+    """Givne a sent as str return n-grams as a list of tuple"""
 
-    # YOUR CODE HERE
     sent = tokenize(sent)
     if n > 1:
         sent.insert(0, '<s>')
@@ -32,7 +25,7 @@ def word_ngrams(sent, n):
             ngrams.append((sent[i],))
     else:
         for i in range(n, len(sent)):
-            ngrams.append((sent[i-1], sent[i]))
+            ngrams.append((sent[i - 1], sent[i]))
 
     return ngrams
 
@@ -43,44 +36,41 @@ class ngram_LM:
     def __init__(self, n, ngram_counts, vocab, unk=False):
         """"Make a n-gram language model, given a vocab and
             data structure for n-gram counts."""
-        
-        self.n = n 
-        
+
+        self.n = n
         self.vocab = vocab
-        
         self.V = len(vocab)
-   
         self.ngram_counts = ngram_counts
         if n > 1:
             self.unigram_counts = Counter()
             for word in self.ngram_counts.items():
-                self.unigram_counts.update({(word[0][0],):word[1]})
+                self.unigram_counts.update({(word[0][0],): word[1]})
 
             assert sum(ngram_counts.values()) == sum(self.unigram_counts.values())
 
-    def perplexity(self,T,alpha):
+    def perplexity(self, T, alpha):
         res = 0
-        M=0
+        M = 0
         for sent in T:
             M += len(sent)
             for word in sent:
-                res += self.logP(word[0],word[-1+self.n],alpha=alpha)
-        return 1/2**(res/M)
+                res += self.logP(word[0], word[-1 + self.n], alpha=alpha)
+        return 1 / 2 ** (res / M)
 
-    def unseen(self,T):
-        unseen =0
+    def unseen(self, T):
+        unseen = 0
         M = 0
         for word in T.keys():
             if self.ngram_counts[word] == 0:
                 unseen += 1
-        return unseen/len(T)
+        return unseen / len(T)
 
     def estimate_prob(self, history, word):
         if self.n == 1:
-            return self.ngram_counts[(word,)]/sum(self.ngram_counts.values())
+            return self.ngram_counts[(word,)] / sum(self.ngram_counts.values())
 
         if self.n > 1:
-            return self.ngram_counts[(history,word)]/self.unigram_counts[(history,)]
+            return self.ngram_counts[(history, word)] / self.unigram_counts[(history,)]
 
     def estimate_smoothed_prob(self, history, word, alpha=0.5):
         """
@@ -99,54 +89,53 @@ class ngram_LM:
             return (alpha + self.ngram_counts[(history, word)]) / \
                    (alpha * self.V + self.unigram_counts[(history,)])
 
-    def logP(self, history, word,alpha=0.5):
+    def logP(self, history, word, alpha=0.5):
         """Return base-2 log probablity."""
 
-        prob = self.estimate_smoothed_prob(history, word,alpha=alpha)
+        prob = self.estimate_smoothed_prob(history, word, alpha=alpha)
         return math.log(prob, 2)
 
     def score_sentence(self, sentence):
         """Given a sentence, return score."""
-        
+
         sent = tokenize(sentence)
         sent.insert(0, '<s>')
         sent.append('</s>')
         M = len(sent)
         score = 0
         for i in range(1, M):
-            score += - self.logP(sent[i-1], sent[i])
+            score += - self.logP(sent[i - 1], sent[i])
         return score / M
- 
-    def prob_dist(self,h):
+
+    def prob_dist(self, h):
         prob = dict()
         for word in self.vocab:
             prob[word] = self.estimate_prob(h, word)
-        return sorted(prob.items(),reverse=True, key = 
-             lambda kv:(kv[1], kv[0]))
+        return sorted(prob.items(), reverse=True, key=
+        lambda kv: (kv[1], kv[0]))
 
     def test_LM(self):
         """Test whether or not the probability mass sums up to one."""
-        
+
         print('\nTEST STARTED FOR n = ' + str(self.n))
 
-        precision = 10**-8
-                 
+        precision = 10 ** -8
+
         if self.n == 1:
-                 
+
             P_sum = sum(self.estimate_prob('', w) for w in self.vocab)
             assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
-                 
+
         elif self.n == 2:
             histories = ['the', 'in', 'at', 'blue', 'white']
-                 
+
             for h in histories:
-                 
                 P_sum = sum(self.estimate_prob(h, w) for w in self.vocab)
-                
+
             for h in histories:
                 P_sum = sum(self.estimate_prob(h, w) for w in self.vocab)
                 assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one for history' + h
-                     
+
         print('Test successful!')
 
     def test_smoohted_LM(self):
@@ -165,16 +154,10 @@ class ngram_LM:
             histories = ['the', 'in', 'at', 'blue', 'white']
             for h in histories:
                 P_sum = sum(self.estimate_smoothed_prob(h, w) for w in self.vocab)
-                assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one for history "{}"'.format(h)
+                assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one for history "{}"'.format(
+                    h)
 
         print('Test successful!')
-
-
-
-# ONCE YOU HAVE N-GRAN COUNTS AND VOCAB, 
-# YOU CAN BUILD LM OBJECTS AS ...
-
-
 
 
 if __name__ == '__main__':
@@ -195,14 +178,12 @@ if __name__ == '__main__':
     VOCAB.update(('<s>', '</s>'))
     bigram_LM = ngram_LM(2, bigram_COUNTS, VOCAB)
 
-
-
-    for filename in ['simple.test','wiki.test']:
+    for filename in ['simple.test', 'wiki.test']:
         bigram_corp = []
         unigram_corp = []
         unigrams = Counter()
         bigrams = Counter()
-        file = open(test_copora+filename,'r',encoding='utf-8')
+        file = open(test_copora + filename, 'r', encoding='utf-8')
         for line in file:
             unigram = word_ngrams(line, 1)
             bigram = word_ngrams(line, 2)
@@ -210,18 +191,18 @@ if __name__ == '__main__':
             bigram_corp.append(bigram)
             unigrams.update(unigram)
             bigrams.update(bigram)
-        print('\nunigram perplexities for '+filename)
+        print('\nunigram perplexities for ' + filename)
         print('with smoothed probabilities:')
-        print(unigram_LM.perplexity(unigram_corp,0.2))
+        print(unigram_LM.perplexity(unigram_corp, 0.2))
 
-        print('\nbigram perplexities for '+filename)
+        print('\nbigram perplexities for ' + filename)
         print('with smoothed probabilities:')
-        print(bigram_LM.perplexity(bigram_corp,0.2))
+        print(bigram_LM.perplexity(bigram_corp, 0.2))
 
-        print('\n File '+filename+' has '+str(unigram_LM.unseen(unigrams)*100)+'\% unseen unigrams and '+str(bigram_LM.unseen(bigrams)*100)+'\% unseen bigrams')
+        print(
+            '\n File ' + filename + ' has ' + str(unigram_LM.unseen(unigrams) * 100) + '\% unseen unigrams and ' + str(
+                bigram_LM.unseen(bigrams) * 100) + '\% unseen bigrams')
 
-
-    
 
     # Yoda's phrases assessment
     print('\nYODA\'S PHRASES ASSESSMENT')
@@ -230,13 +211,14 @@ if __name__ == '__main__':
 
     with open('../corpora/lm_eval/english.sent', 'r', encoding='utf-8') as eng_file:
         eng_phrases = eng_file.readlines()
+
     scores = []
     # Handling phrases consisting of several sentences
     for phrase_y, phrase_en in zip(yoda_phrases, eng_phrases):
-        print(phrase_en)
-        print(phrase_y)
         p_y = re.findall(r'\w[\w\s,]+', phrase_y)
         p_en = re.findall(r'\w[\w\s,]+', phrase_en)
+        if len(p_y) == 0:
+            continue
         score_y = sum([bigram_LM.score_sentence(p) for p in p_y]) / len(p_y)
         score_en = sum([bigram_LM.score_sentence(p) for p in p_en]) / len(p_en)
         scores.append((phrase_y, phrase_en, score_y, score_en))
@@ -266,7 +248,7 @@ if __name__ == '__main__':
             sent.append('</s>')
             logs = []
             for i in range(1, len(sent)):
-                logs.append(-bigram_LM.logP(sent[i-1], sent[i]))
+                logs.append(-bigram_LM.logP(sent[i - 1], sent[i]))
             plt.subplot(2, 2, m)
             plt.plot(range(1, len(sent)), logs)
             plt.title(phrase, fontdict={'fontsize': 5})

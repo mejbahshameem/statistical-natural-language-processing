@@ -11,31 +11,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../CorporaInvestigation/vocabulary_growth.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="2" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-361">
-              <caret line="124" selection-start-line="124" selection-end-line="124" />
+            <state relative-caret-position="366">
+              <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
               <folding>
-                <element signature="e#52#63#0" expanded="true" />
+                <element signature="e#53#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../CorporaInvestigation/vocabulary_growth.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="31" lean-forward="true" selection-start-line="1" selection-start-column="31" selection-end-line="2" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/yodish.sent">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="440">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -43,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/english.sent">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="38" />
+            <state relative-caret-position="440">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -85,8 +85,8 @@
         <option value="$PROJECT_DIR$/exercises/Ex2/cryptoanalysis.py" />
         <option value="$PROJECT_DIR$/exercises/Ex2/prob_dist.py" />
         <option value="$PROJECT_DIR$/exercises/Ex3/source/ngram_LM.py" />
-        <option value="$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/english.sent" />
         <option value="$PROJECT_DIR$/exercises/Ex4/source/ngram_LM_1.py" />
+        <option value="$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/english.sent" />
         <option value="$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/yodish.sent" />
         <option value="$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py" />
       </list>
@@ -102,7 +102,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -147,6 +146,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -311,23 +311,24 @@
       <workItem from="1557091380006" duration="2055000" />
       <workItem from="1557347738647" duration="29209000" />
       <workItem from="1557998948321" duration="23593000" />
-      <workItem from="1558472109568" duration="34498000" />
+      <workItem from="1558472109568" duration="35204000" />
+      <workItem from="1558637164580" duration="1527000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89355000" />
+    <option name="totallyTimeSpent" value="91588000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22390318" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22692889" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.049099836" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12274959" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -341,7 +342,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.67170954" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.30332828" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Coverage" order="5" side_tool="true" />
     </layout>
@@ -390,7 +391,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SNLP$ngram_LM_1.coverage" NAME="ngram_LM_1 Coverage Results" MODIFIED="1558602798817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex4/source" />
+    <SUITE FILE_PATH="coverage/SNLP$ngram_LM_1.coverage" NAME="ngram_LM_1 Coverage Results" MODIFIED="1558638010372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex4/source" />
     <SUITE FILE_PATH="coverage/SNLP$prob_dist.coverage" NAME="prob_dist Coverage Results" MODIFIED="1557350923675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex2" />
     <SUITE FILE_PATH="coverage/SNLP$Frequncy_analysis.coverage" NAME="Frequncy_analysis Coverage Results" MODIFIED="1557440770638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex2" />
     <SUITE FILE_PATH="coverage/SNLP$cryptoanalysis.coverage" NAME="cryptoanalysis Coverage Results" MODIFIED="1558038057962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex2" />
@@ -453,15 +454,10 @@
     <entry file="file://$PROJECT_DIR$/exercises/Ex3/1">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/corpus.sent.en.train">
       <provider selected="true" editor-type-id="LargeFileEditor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/unigram_LM.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/unigram_LM.txt" />
     <entry file="file://$PROJECT_DIR$/exercises/Ex2/statistic_English_1.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -469,9 +465,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/unigram_LM.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/unigram_LM.json" />
     <entry file="file://$PROJECT_DIR$/exercises/Ex2/source code/cryptoanalysis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3302">
@@ -481,14 +475,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.json">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="LargeFileEditor">
-        <state relative-caret-position="78">
-          <caret column="1776" selection-start-column="1776" selection-end-column="1776" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.json" />
     <entry file="file://$PROJECT_DIR$/exercises/Ex3/source/ngram_LM.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
@@ -499,37 +486,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/english.sent">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/logP(w,h).png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/english.sent">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-361">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-          <folding>
-            <element signature="e#52#63#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="440">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/yodish.sent">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../CorporaInvestigation/vocabulary_growth.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
-          <caret line="1" column="31" lean-forward="true" selection-start-line="1" selection-start-column="31" selection-end-line="2" selection-end-column="36" />
+          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="2" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/yodish.sent">
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="366">
+          <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
+          <folding>
+            <element signature="e#53#64#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
