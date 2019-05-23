@@ -1,11 +1,11 @@
 # coding: utf-8
-# SNLP - SoSe 2019 - ASSINGMENT III 
+
+# SNLP - SoSe 2019 - ASSINGMENT IV
 
 import math
 import re
-import time
-from collections import defaultdict, Counter, OrderedDict
-#from nltk import ngrams
+from collections import Counter
+from matplotlib import pyplot as plt
 
 
 def tokenize(text):
@@ -14,8 +14,7 @@ def tokenize(text):
 
 
 def word_ngrams(sent, n):
-    """Givne a sent as str return n-grams as a list of tuple"""
-    
+    """Givne a sent as str return n-grams as a list of tuple"""    
     # EXAMPLES 
     # > word_ngrams('hello world', 1)
     # [('hello',), ('world',)]
@@ -50,9 +49,6 @@ class ngram_LM:
         self.vocab = vocab
         
         self.V = len(vocab)
-
-        # YOUR CODE HERE
-        # START BY MAKING THE RIGHT COUNTS FOR THIS PARTICULAR self.n
    
         self.ngram_counts = ngram_counts
         if n > 1:
@@ -130,8 +126,7 @@ class ngram_LM:
         if self.n == 1:
                  
             P_sum = sum(self.estimate_prob('', w) for w in self.vocab)
-            
-            assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
+                        assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
                  
         elif self.n == 2:
             histories = ['the', 'in', 'at', 'blue', 'white']
@@ -140,6 +135,8 @@ class ngram_LM:
                  
                 P_sum = sum(self.estimate_prob(h, w) for w in self.vocab)
                 
+            for h in histories:
+                P_sum = sum(self.estimate_prob(h, w) for w in self.vocab)
                 assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one for history' + h
                      
         print('Test successful!')
@@ -173,27 +170,31 @@ class ngram_LM:
 
 
 if __name__ == '__main__':
-    # ADD YOUR CODE TO COLLECT COUTNS AND CONSTRUCT VOCAB
-    corpora = '../../Ex3/corpora/corpus.sent.en.train'
+    corpora = '../corpora/corpus.sent.en.train'
     test_copora = '../exercise4_corpora/lm_eval/'
+    with open(corpora, 'r', encoding='utf-8') as file:
+        content = file.readlines()
+    corpus = tokenize(' '.join(content))
+    VOCAB = set(corpus)
 
-    # ONCE YOU HAVE N-GRAN COUNTS AND VOCAB,
-    # YOU CAN BUILD LM OBJECTS AS ...
-    unigram_COUNTS = Counter()
+    # unigram_COUNTS = Counter()
     bigram_COUNTS = Counter()
-    file = open(corpora, 'r', encoding='utf-8')
-    for line in file:
-        unigram_COUNTS.update(word_ngrams(line, 1))
+    for line in content:
+        # unigram_COUNTS.update(word_ngrams(line, 1))
         bigram_COUNTS.update(word_ngrams(line, 2))
-    file.seek(0, 0)
-    VOCAB = tokenize(file.read())
-    length = len(VOCAB)
-    VOCAB = set(VOCAB)
-    file.close()
 
-    unigram_LM = ngram_LM(1, unigram_COUNTS, VOCAB)
+    # unigram_LM = ngram_LM(1, unigram_COUNTS, VOCAB)
     VOCAB.update(('<s>', '</s>'))
     bigram_LM = ngram_LM(2, bigram_COUNTS, VOCAB)
+
+
+    # Yoda's phrases assessment
+    print('\nYODA\'S PHRASES ASSESSMENT')
+    with open('../corpora/lm_eval/yodish.sent', 'r', encoding='utf-8') as yoda_file:
+        yoda_phrases = yoda_file.readlines()
+
+    with open('../corpora/lm_eval/english.sent', 'r', encoding='utf-8') as eng_file:
+        eng_phrases = eng_file.readlines()
 
     for filename in ['simple.test','wiki.test']:
         bigram_corp = []
@@ -210,3 +211,50 @@ if __name__ == '__main__':
         print('\nbigram perplexities for '+filename)
         print('with smoothed probabilities:')
         print(bigram_LM.perplexity(bigram_corp,0.2))
+    
+    scores = []
+    # Handling phrases consisting of several sentences
+    for phrase_y, phrase_en in zip(yoda_phrases, eng_phrases):
+        p_y = re.findall(r'\w[\w\s,]+', phrase_y)
+        p_en = re.findall(r'\w[\w\s,]+', phrase_en)
+        score_y = sum([bigram_LM.score_sentence(p) for p in p_y]) / len(p_y)
+        score_en = sum([bigram_LM.score_sentence(p) for p in p_en]) / len(p_en)
+        scores.append((phrase_y, phrase_en, score_y, score_en))
+
+    print('\nSCORES OF THE PAIRS')
+    for score in scores:
+        print('\n{} | {}\n({} | {})'.format(score[0], score[1], score[2], score[3]))
+
+    difference = [abs(score[2] - score[3]) for score in scores]
+
+    min_dif = min(difference)
+    max_dif = max(difference)
+    phrase_min = (yoda_phrases[difference.index(min_dif)],
+                  eng_phrases[difference.index(min_dif)])
+    phrase_max = (yoda_phrases[difference.index(max_dif)],
+                  eng_phrases[difference.index(max_dif)])
+    print('\nMINIMUM DIFFERENCE:\n{}\n{}'.format(phrase_min, min_dif))
+    print('\nMAXIMUM DIFFERENCE:\n{}\n{}'.format(phrase_max, max_dif))
+
+    plt.figure(1)
+
+    m = 1
+    for pair in [phrase_min, phrase_max]:
+        for phrase in pair:
+            sent = tokenize(phrase)
+            sent.insert(0, '<s>')
+            sent.append('</s>')
+            logs = []
+            for i in range(1, len(sent)):
+                logs.append(-bigram_LM.logP(sent[i-1], sent[i]))
+            plt.subplot(2, 2, m)
+            plt.plot(range(1, len(sent)), logs)
+            plt.title(phrase, fontdict={'fontsize': 5})
+            plt.ylabel('Negative log probability)')
+            plt.xlabel('Word index')
+            m += 1
+
+    plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95,
+                        hspace=0.25, wspace=0.35)
+    plt.savefig('logP(w,h).png')
+    plt.show()
