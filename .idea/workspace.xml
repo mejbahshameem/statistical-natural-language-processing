@@ -10,10 +10,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1633">
+            <state relative-caret-position="-361">
               <caret line="124" selection-start-line="124" selection-end-line="124" />
               <folding>
                 <element signature="e#52#63#0" expanded="true" />
@@ -31,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/yodish.sent">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
@@ -311,12 +311,12 @@
       <workItem from="1557091380006" duration="2055000" />
       <workItem from="1557347738647" duration="29209000" />
       <workItem from="1557998948321" duration="23593000" />
-      <workItem from="1558472109568" duration="33593000" />
+      <workItem from="1558472109568" duration="34498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88450000" />
+    <option name="totallyTimeSpent" value="89355000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -506,6 +506,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/logP(w,h).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-361">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+          <folding>
+            <element signature="e#52#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../CorporaInvestigation/vocabulary_growth.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -513,23 +526,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/logP(w,h).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/yodish.sent">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1633">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-          <folding>
-            <element signature="e#52#63#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
