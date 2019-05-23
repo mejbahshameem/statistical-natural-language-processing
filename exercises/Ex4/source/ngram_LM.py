@@ -233,9 +233,10 @@ if __name__ == '__main__':
     scores = []
     # Handling phrases consisting of several sentences
     for phrase_y, phrase_en in zip(yoda_phrases, eng_phrases):
+        print(phrase_en)
+        print(phrase_y)
         p_y = re.findall(r'\w[\w\s,]+', phrase_y)
         p_en = re.findall(r'\w[\w\s,]+', phrase_en)
-        print(len(p_y))
         score_y = sum([bigram_LM.score_sentence(p) for p in p_y]) / len(p_y)
         score_en = sum([bigram_LM.score_sentence(p) for p in p_en]) / len(p_en)
         scores.append((phrase_y, phrase_en, score_y, score_en))
