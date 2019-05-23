@@ -47,20 +47,20 @@
     KL Divergence is computed for each corpus using the given formula which returns value in bits 
     \\\\\\
     \item[d)]  
-        From the table below we can analyze the closeness of the phonemes of different language pair from their respective probability distribution. Similarity between same corpus is $100\%$ that is why in the table for the pair X*X the dissimilarity is 0. English phonemes are more closer to French than the others, Spanish are closer to Italian whereas, French is 1.6133101058269297 bits dissimilar to the Italian which is the closest from French to Italian. Italian is the closest to Spanish. However, we can not say vice versa. For example, we already analyzed that English phonemes are more closer to French than the others, but the opposite, French phonemes are more closer to English than the others does not hold. Because we already mentioned above that French phonemes have less dissimilarity with the Italian. So the value in the table English*French = 2.8261536675741477 bits and the value French*English = 2.430955266520877 bits do not match. Hence, the asymmetric property of the KL-divergence is justified.
+        From the table below we can analyze the closeness of the phonemes of different language pair from their respective probability distribution. Similarity between same corpus is $100\%$ that is why in the table for the pair X*X the dissimilarity is 0. English phonemes are more closer to French than the others, Spanish are closer to Italian whereas, French is 1.6133101058269301 bits dissimilar to the Italian which is the closest from French to Italian. Italian is the closest to Spanish. However, we can not say vice versa. For example, we already analyzed that English phonemes are more closer to French than the others, but the opposite, French phonemes are more closer to English than the others does not hold. Because we already mentioned above that French phonemes have less dissimilarity with the Italian. So the value in the table English*French = 2.8261536675741468 bits and the value French*English = 2.4309552665208773 bits do not match. Hence, the asymmetric property of the KL-divergence is justified.
         \begin{table}[ht]
             \centering
             \begin{tabular}{|c| c| c| c| c|}
                 \hline 
                 & English & Spanish & French & Italian \\ [0.5ex]
                 \hline
-                English & 0.0 & 3.4527781919333416 & 2.8261536675741477 & 3.187159871659876 \\
+                English & 0.0 & 3.4527781919333425 & 2.8261536675741468 & 3.1871598716598757\\
                 \hline
-                Spanish & 2.5457803433370376 & 0.0 & 1.3777115939406528 & 1.1271537967399006 \\
+                Spanish & 2.5457803433370376 & 0.0 & 1.3777115939406528 & 1.1271537967399012 \\
                 \hline
-                French & 2.430955266520877 & 2.296411824471215 & 0.0 & 1.6133101058269297 \\
+                French & 2.4309552665208773 & 2.296411824471215 & 0.0 & 1.6133101058269301 \\
                 \hline
-                Italian & 1.8778719008184728 &  1.0740189099914266 &  1.1985568480541147 &  0.0 \\ [1ex]
+                Italian & 1.8778719008184726 & 1.0740189099914261 & 1.1985568480541144 & 0.0   \\ [1ex]
                 \hline
             \end{tabular}
             \caption{\hspace*{4.0cm}Table: KL Divergence for all language pair}
