@@ -103,18 +103,18 @@ prob_dist_es=prob_dist_with_smoothing(pc_es,alpha,len(pc_es))
 prob_dist_fr=prob_dist_with_smoothing(pc_fr,alpha,len(pc_fr))
 prob_dist_it=prob_dist_with_smoothing(pc_it,alpha,len(pc_it))
 
-#Test Unseen Phoneme
-print('Testing for 2 Unseen Phonemes in different corpus\n')
-print('Probability of phoneme '+'"$" in English corpus is: '+str(test_unseen(prob_dist_en,'$')))
-print('Probability of phoneme '+'"$" in French corpus is: '+str(test_unseen(prob_dist_fr,'$')))
-print('Probability of phoneme '+'"1" in Italian corpus is: '+str(test_unseen(prob_dist_it,'1')))
-time.sleep(1)
-
 #Generate Bar Chart of Probability Distribution for Each Corpus
 generate_plot(prob_dist_en,'English')
 generate_plot(prob_dist_es,'Spanish')
 generate_plot(prob_dist_fr,'French')
 generate_plot(prob_dist_it,'Italian')
+
+#Test Unseen Phoneme
+print('Testing for 2 Unseen Phonemes in different corpus\n')
+print('Probability of phoneme '+'"$" in English corpus is: '+str(test_unseen(prob_dist_en,'$')))
+print('Probability of phoneme '+'"$" in French corpus is: '+str(test_unseen(prob_dist_fr,'$')))
+print('Probability of phoneme '+'"1" in Italian corpus is: '+str(test_unseen(prob_dist_it,'1')))
+time.sleep(2)
 
 #Calculate KL Divergence for All Language Pair
 KL_divergence_all=[
