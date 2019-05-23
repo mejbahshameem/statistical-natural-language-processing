@@ -67,6 +67,14 @@ class ngram_LM:
                 res += self.logP(word[0],word[-1+self.n],alpha=alpha)
         return 1/2**(res/M)
 
+    def unseen(self,T):
+        unseen =0
+        M = 0
+        for word in T.keys():
+            if self.ngram_counts[word] == 0:
+                unseen += 1
+        return unseen/len(T)
+
     def estimate_prob(self, history, word):
         if self.n == 1:
             return self.ngram_counts[(word,)]/sum(self.ngram_counts.values())
@@ -126,7 +134,7 @@ class ngram_LM:
         if self.n == 1:
                  
             P_sum = sum(self.estimate_prob('', w) for w in self.vocab)
-                        assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
+            assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
                  
         elif self.n == 2:
             histories = ['the', 'in', 'at', 'blue', 'white']
@@ -171,22 +179,49 @@ class ngram_LM:
 
 if __name__ == '__main__':
     corpora = '../corpora/corpus.sent.en.train'
-    test_copora = '../exercise4_corpora/lm_eval/'
+    test_copora = '../corpora/lm_eval/'
     with open(corpora, 'r', encoding='utf-8') as file:
         content = file.readlines()
     corpus = tokenize(' '.join(content))
     VOCAB = set(corpus)
 
-    # unigram_COUNTS = Counter()
+    unigram_COUNTS = Counter()
     bigram_COUNTS = Counter()
     for line in content:
-        # unigram_COUNTS.update(word_ngrams(line, 1))
+        unigram_COUNTS.update(word_ngrams(line, 1))
         bigram_COUNTS.update(word_ngrams(line, 2))
 
-    # unigram_LM = ngram_LM(1, unigram_COUNTS, VOCAB)
+    unigram_LM = ngram_LM(1, unigram_COUNTS, VOCAB)
     VOCAB.update(('<s>', '</s>'))
     bigram_LM = ngram_LM(2, bigram_COUNTS, VOCAB)
 
+
+
+    for filename in ['simple.test','wiki.test']:
+        bigram_corp = []
+        unigram_corp = []
+        unigrams = Counter()
+        bigrams = Counter()
+        file = open(test_copora+filename,'r',encoding='utf-8')
+        for line in file:
+            unigram = word_ngrams(line, 1)
+            bigram = word_ngrams(line, 2)
+            unigram_corp.append(unigram)
+            bigram_corp.append(bigram)
+            unigrams.update(unigram)
+            bigrams.update(bigram)
+        print('\nunigram perplexities for '+filename)
+        print('with smoothed probabilities:')
+        print(unigram_LM.perplexity(unigram_corp,0.2))
+
+        print('\nbigram perplexities for '+filename)
+        print('with smoothed probabilities:')
+        print(bigram_LM.perplexity(bigram_corp,0.2))
+
+        print('\n File '+filename+' has '+str(unigram_LM.unseen(unigrams)*100)+'\% unseen unigrams and '+str(bigram_LM.unseen(bigrams)*100)+'\% unseen bigrams')
+
+
+    
 
     # Yoda's phrases assessment
     print('\nYODA\'S PHRASES ASSESSMENT')
@@ -195,28 +230,12 @@ if __name__ == '__main__':
 
     with open('../corpora/lm_eval/english.sent', 'r', encoding='utf-8') as eng_file:
         eng_phrases = eng_file.readlines()
-
-    for filename in ['simple.test','wiki.test']:
-        bigram_corp = []
-        unigram_corp = []
-        file = open(test_copora+filename,'r',encoding='utf-8')
-        for line in file:
-            unigram_corp.append(word_ngrams(line, 1))
-            bigram_corp.append(word_ngrams(line, 2))
-        
-        print('\nunigram perplexities for '+filename)
-        print('with smoothed probabilities:')
-        print(unigram_LM.perplexity(unigram_corp,0.2))
-
-        print('\nbigram perplexities for '+filename)
-        print('with smoothed probabilities:')
-        print(bigram_LM.perplexity(bigram_corp,0.2))
-    
     scores = []
     # Handling phrases consisting of several sentences
     for phrase_y, phrase_en in zip(yoda_phrases, eng_phrases):
         p_y = re.findall(r'\w[\w\s,]+', phrase_y)
         p_en = re.findall(r'\w[\w\s,]+', phrase_en)
+        print(len(p_y))
         score_y = sum([bigram_LM.score_sentence(p) for p in p_y]) / len(p_y)
         score_en = sum([bigram_LM.score_sentence(p) for p in p_en]) / len(p_en)
         scores.append((phrase_y, phrase_en, score_y, score_en))
