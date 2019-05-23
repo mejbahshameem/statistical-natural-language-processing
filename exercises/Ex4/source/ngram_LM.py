@@ -4,6 +4,7 @@
 import math
 import re
 from collections import Counter
+from matplotlib import pyplot as plt
 
 
 def tokenize(text):
@@ -75,7 +76,7 @@ class ngram_LM:
     def logP(self, history, word):
         """Return base-2 log probablity."""
 
-        prob = self.estimate_smoothed_prob(history, word)
+        prob = self.estimate_smoothed_prob(history, word, alpha=0.2)
         return math.log(prob, 2)
 
     def score_sentence(self, sentence):
@@ -184,5 +185,25 @@ if __name__ == '__main__':
     print('\nMINIMUM DIFFERENCE:\n{}\n{}'.format(phrase_min, min_dif))
     print('\nMAXIMUM DIFFERENCE:\n{}\n{}'.format(phrase_max, max_dif))
 
+    plt.figure(1)
 
+    m = 1
+    for pair in [phrase_min, phrase_max]:
+        for phrase in pair:
+            sent = tokenize(phrase)
+            sent.insert(0, '<s>')
+            sent.append('</s>')
+            logs = []
+            for i in range(1, len(sent)):
+                logs.append(-bigram_LM.logP(sent[i-1], sent[i]))
+            plt.subplot(2, 2, m)
+            plt.plot(range(1, len(sent)), logs)
+            plt.title(phrase, fontdict={'fontsize': 5})
+            plt.ylabel('Negative log probability)')
+            plt.xlabel('Word index')
+            m += 1
 
+    plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95,
+                        hspace=0.25, wspace=0.35)
+    plt.savefig('logP(w,h).png')
+    plt.show()
