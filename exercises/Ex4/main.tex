@@ -85,7 +85,7 @@
 		\end{tabular}
 		\end{adjustbox}
 		\end{table}
-		The table shows that the peplexity of the bigrams is in both cases lower that the perplexity of the unigrams. It was not possible to calculate the perplexity for alpha = 0 because, there are several words which are not in the learned vocabulary which results in a probability of 0 or a history of 0. Both cases lead to log(0) or divsion by zero which can not be calculated. For N untrained words with a theoretical very small probability we have N times $log(1/M)$ in our sum. This explaines the high values on these unknown test corpus. 
+		The table shows that the peplexity of the bigrams is in both cases lower that the perplexity of the unigrams. It was not possible to calculate the perplexity for alpha = 0 because, there are several words which are not in the learned vocabulary which results in a probability of 0 or a history of 0. Both cases lead to log(0) or divsion by zero which can not be calculated. For N untrained words with a theoretical very small probability we have N times $log(x\rightarrow0)$ in our sum. This explaines the high values on these unknown test corpus. 
 		\item[d)]
 		File simple.test has 1.96\% unseen unigrams and 18.95\% unseen bigrams.\\
 		File wiki.test has 7.75\% unseen unigrams and 31.42\% unseen bigrams.\\
