@@ -24,7 +24,7 @@ def word_ngrams(sent, n):
         for i in range(len(sent)):
             ngrams.append((sent[i],))
     else:
-        for i in range(n, len(sent)):
+        for i in range(1, len(sent)):
             ngrams.append((sent[i - 1], sent[i]))
 
     return ngrams
@@ -46,7 +46,8 @@ class ngram_LM:
             for word in self.ngram_counts.items():
                 self.unigram_counts.update({(word[0][0],): word[1]})
 
-            assert sum(ngram_counts.values()) == sum(self.unigram_counts.values())
+            assert sum(ngram_counts.values()) == sum(
+                self.unigram_counts.values())
 
     def perplexity(self, T, alpha):
         res = 0
@@ -55,7 +56,7 @@ class ngram_LM:
             M += len(sent)
             for word in sent:
                 res += self.logP(word[0], word[-1 + self.n], alpha=alpha)
-        return 1 / 2 ** (res / M)
+        return 2**(-res / M)
 
     def unseen(self, T):
         unseen = 0
@@ -111,8 +112,7 @@ class ngram_LM:
         prob = dict()
         for word in self.vocab:
             prob[word] = self.estimate_prob(h, word)
-        return sorted(prob.items(), reverse=True, key=
-        lambda kv: (kv[1], kv[0]))
+        return sorted(prob.items(), reverse=True, key=lambda kv: (kv[1], kv[0]))
 
     def test_LM(self):
         """Test whether or not the probability mass sums up to one."""
@@ -124,7 +124,8 @@ class ngram_LM:
         if self.n == 1:
 
             P_sum = sum(self.estimate_prob('', w) for w in self.vocab)
-            assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
+            assert abs(
+                1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
 
         elif self.n == 2:
             histories = ['the', 'in', 'at', 'blue', 'white']
@@ -134,7 +135,8 @@ class ngram_LM:
 
             for h in histories:
                 P_sum = sum(self.estimate_prob(h, w) for w in self.vocab)
-                assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one for history' + h
+                assert abs(
+                    1.0 - P_sum) < precision, 'Probability mass does not sum up to one for history' + h
 
         print('Test successful!')
 
@@ -148,12 +150,14 @@ class ngram_LM:
 
         if self.n == 1:
             P_sum = sum(self.estimate_smoothed_prob('', w) for w in self.vocab)
-            assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
+            assert abs(
+                1.0 - P_sum) < precision, 'Probability mass does not sum up to one.'
 
         elif self.n == 2:
             histories = ['the', 'in', 'at', 'blue', 'white']
             for h in histories:
-                P_sum = sum(self.estimate_smoothed_prob(h, w) for w in self.vocab)
+                P_sum = sum(self.estimate_smoothed_prob(h, w)
+                            for w in self.vocab)
                 assert abs(1.0 - P_sum) < precision, 'Probability mass does not sum up to one for history "{}"'.format(
                     h)
 
@@ -203,6 +207,8 @@ if __name__ == '__main__':
             '\n File ' + filename + ' has ' + str(unigram_LM.unseen(unigrams) * 100) + '\% unseen unigrams and ' + str(
                 bigram_LM.unseen(bigrams) * 100) + '\% unseen bigrams')
 
+        for alpha in range(1, 11, 1):
+            break
 
     # Yoda's phrases assessment
     print('\nYODA\'S PHRASES ASSESSMENT')
@@ -225,7 +231,8 @@ if __name__ == '__main__':
 
     print('\nSCORES OF THE PAIRS')
     for score in scores:
-        print('\n{} | {}\n({} | {})'.format(score[0], score[1], score[2], score[3]))
+        print('\n{} | {}\n({} | {})'.format(
+            score[0], score[1], score[2], score[3]))
 
     difference = [abs(score[2] - score[3]) for score in scores]
 
