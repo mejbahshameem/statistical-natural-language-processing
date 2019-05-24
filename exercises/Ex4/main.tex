@@ -20,12 +20,12 @@
             \centering
                 \begin{minipage}{.55\textwidth}
                     \centering
-                    \includegraphics[keepaspectratio=true,scale=0.35]{English.png} 
+                    \includegraphics[keepaspectratio=true,scale=0.35]{./source/EX1.1_files/English.png} 
                     \label{fig:prob1_6_2}
                 \end{minipage}%
                 \begin{minipage}{.5\textwidth}
                     \centering
-                    \includegraphics[keepaspectratio=true,scale=0.35]{Spanish.png}   
+                    \includegraphics[keepaspectratio=true,scale=0.35]{./source/EX1.1_files/Spanish.png}   
                     \label{fig:prob1_6_2}
                 \end{minipage}
         \end{figure}
@@ -33,12 +33,12 @@
             \centering
                 \begin{minipage}{.55\textwidth}
                     \centering
-                    \includegraphics[keepaspectratio=true,scale=0.35]{French.png} 
+                    \includegraphics[keepaspectratio=true,scale=0.35]{./source/EX1.1_files/French.png} 
                     \label{fig:prob1_6_2}
                 \end{minipage}%
                 \begin{minipage}{.5\textwidth}
                     \centering
-                    \includegraphics[keepaspectratio=true,scale=0.35]{Italian.png}   
+                    \includegraphics[keepaspectratio=true,scale=0.35]{./source/EX1.1_files/Italian.png}   
                     \label{fig:prob1_6_2}
                 \end{minipage}
         \end{figure}
@@ -72,8 +72,31 @@
 \subsection{LM Evaluation - Perplexity}
 \begin{itemize}
 	\item[a)]
-		$$peplaxity(\mathcal{V}) = 2^{-log(\frac{1}{M})}$$
-	\item[b)]
-		
+		$$perplaxity(\mathcal{V}) = 2^{-log(\frac{1}{M})}$$
+	\item[c)]
+		\begin{table}
+		\begin{adjustbox}{width=\columnwidth,center}
+		\begin{tabular}{|c|c|c|c||c|c|c|c|}
+		\hline
+		\multicolumn{4}{|c||}{simplet.test}&\multicolumn{4}{c|}{wiki.test}\\\hline\hline
+		\multicolumn{2}{|c|}{unigram}&\multicolumn{2}{c||}{bigram}&\multicolumn{2}{c|}{unigram}&\multicolumn{2}{c|}{bigram}\\\hline
+		smoothed & unsmoothed & smoothed & unsmoothed &smoothed & unsmoothed & smoothed & unsmoothed\\\hline
+		1163&no result &915&no result&1860&no result&1788&no result\\\hline 
+		\end{tabular}
+		\end{adjustbox}
+		\end{table}
+		The table shows that the peplexity of the bigrams is in both cases lower that the perplexity of the unigrams. It was not possible to calculate the perplexity for alpha = 0 because, there are several words which are not in the learned vocabulary which results in a probability of 0 or a history of 0. Both cases lead to log(0) or divsion by zero which can not be calculated. For N untrained words with a theoretical very small probability we have N times $log(x\rightarrow0)$ in our sum. This explaines the high values on these unknown test corpus. 
+		\item[d)]
+		File simple.test has 1.96\% unseen unigrams and 18.95\% unseen bigrams.\\
+		File wiki.test has 7.75\% unseen unigrams and 31.42\% unseen bigrams.\\
+		The higher amount of unseen data in wiki.test explaines the higher perplexity values in the table of c), which is given by the fact that each time a new word is found the log of a realy small value gets added in the sum.
+		\item[e)]
+		The plots show that a bigger alpha in the smoothing changes the perplexity of the bigrams. The unigrams dont change that much in comparission with the bigram values. The important thing is that while the uniram values drop with a higher alpha, the bigram values rise with bigger alpha. The scale of this changes is bound to the amount of unseen data in the test corpus.
+		\includegraphics[width=\textwidth]{source/simple_test_perplexity}
+		\includegraphics[width=\textwidth]{source/wiki_test_perplexity}
+		\item[f)] In the book the difinition is `a perplexity of k means that you are as surprised
+on average as you would have been if you had had to guess between
+k equiprobable choices at each step.'\\
+The definition on this exercise sheet is the sum of the logarithms of the individual likelihood for each word and then again the log gets reversed. So the definition would be something like the normalized avarage likelihood of all the words.
 \end{itemize}
 \end{document}
