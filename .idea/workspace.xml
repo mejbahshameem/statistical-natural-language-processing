@@ -10,41 +10,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../CorporaInvestigation/vocabulary_growth.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="2" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
+            <state relative-caret-position="-1738">
+              <caret line="176" column="15" selection-start-line="176" selection-start-column="15" selection-end-line="176" selection-end-column="15" />
               <folding>
-                <element signature="e#53#64#0" expanded="true" />
+                <element signature="e#52#63#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/yodish.sent">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/english.sent">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -88,6 +61,7 @@
         <option value="$PROJECT_DIR$/exercises/Ex4/source/ngram_LM_1.py" />
         <option value="$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/english.sent" />
         <option value="$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/yodish.sent" />
+        <option value="$PROJECT_DIR$/exercises/Ex4/source/EX 1.1 files/ex1.1_KL_DIV.py" />
         <option value="$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py" />
       </list>
     </option>
@@ -177,7 +151,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ngram_LM_1">
+  <component name="RunManager" selected="Python.ngram_LM (1)">
     <configuration name="Frequncy_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SNLP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -214,6 +188,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exercises/Ex2/cryptoanalysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ngram_LM (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SNLP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/exercises/Ex4/source" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -266,35 +262,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="prob_dist" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SNLP" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/exercises/Ex2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exercises/Ex2/prob_dist.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ngram_LM (1)" />
         <item itemvalue="Python.ngram_LM_1" />
         <item itemvalue="Python.ngram_LM" />
         <item itemvalue="Python.cryptoanalysis" />
         <item itemvalue="Python.Frequncy_analysis" />
-        <item itemvalue="Python.prob_dist" />
       </list>
     </recent_temporary>
   </component>
@@ -312,12 +286,12 @@
       <workItem from="1557347738647" duration="29209000" />
       <workItem from="1557998948321" duration="23593000" />
       <workItem from="1558472109568" duration="35204000" />
-      <workItem from="1558637164580" duration="1527000" />
+      <workItem from="1558637164580" duration="11944000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91588000" />
+    <option name="totallyTimeSpent" value="102005000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -328,7 +302,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12274959" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26022914" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -337,12 +311,12 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.29623568" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3289689" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.14566284" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.10638298" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.20785597" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.30332828" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.23373677" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Coverage" order="5" side_tool="true" />
     </layout>
@@ -391,10 +365,11 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SNLP$ngram_LM_1.coverage" NAME="ngram_LM_1 Coverage Results" MODIFIED="1558638010372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex4/source" />
+    <SUITE FILE_PATH="coverage/SNLP$ngram_LM_1.coverage" NAME="ngram_LM_1 Coverage Results" MODIFIED="1558721848868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex4/source" />
     <SUITE FILE_PATH="coverage/SNLP$prob_dist.coverage" NAME="prob_dist Coverage Results" MODIFIED="1557350923675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex2" />
     <SUITE FILE_PATH="coverage/SNLP$Frequncy_analysis.coverage" NAME="Frequncy_analysis Coverage Results" MODIFIED="1557440770638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex2" />
     <SUITE FILE_PATH="coverage/SNLP$cryptoanalysis.coverage" NAME="cryptoanalysis Coverage Results" MODIFIED="1558038057962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex2" />
+    <SUITE FILE_PATH="coverage/SNLP$ngram_LM__1_.coverage" NAME="ngram_LM (1) Coverage Results" MODIFIED="1558722225313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex4/source" />
     <SUITE FILE_PATH="coverage/SNLP$ngram_LM.coverage" NAME="ngram_LM Coverage Results" MODIFIED="1558534494137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex3/source" />
   </component>
   <component name="editorHistoryManager">
@@ -486,9 +461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/logP(w,h).png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/english.sent">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -498,8 +470,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exercises/Ex4/corpora/lm_eval/yodish.sent">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="220">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -510,12 +482,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/logP(w,h).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/EX 1.1 files/ex1.1_KL_DIV.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1153">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exercises/Ex4/source/ngram_LM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
+        <state relative-caret-position="-1738">
+          <caret line="176" column="15" selection-start-line="176" selection-start-column="15" selection-end-line="176" selection-end-column="15" />
           <folding>
-            <element signature="e#53#64#0" expanded="true" />
+            <element signature="e#52#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
