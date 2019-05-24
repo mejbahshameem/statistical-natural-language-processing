@@ -5,6 +5,7 @@ import math
 import re
 from collections import Counter
 from matplotlib import pyplot as plt
+import numpy as np
 
 
 def tokenize(text):
@@ -165,6 +166,7 @@ class ngram_LM:
 
 
 if __name__ == '__main__':
+    plot = False
     corpora = '../corpora/corpus.sent.en.train'
     test_copora = '../corpora/lm_eval/'
     with open(corpora, 'r', encoding='utf-8') as file:
@@ -207,8 +209,30 @@ if __name__ == '__main__':
             '\n File ' + filename + ' has ' + str(unigram_LM.unseen(unigrams) * 100) + '\% unseen unigrams and ' + str(
                 bigram_LM.unseen(bigrams) * 100) + '\% unseen bigrams')
 
-        for alpha in range(1, 11, 1):
-            break
+        if plot:
+            plt.figure(filename)
+            log = []
+            log2 = []
+            for alpha in np.arange(0.1, 1.1, 0.1):
+                log.append(unigram_LM.perplexity(unigram_corp, alpha))
+                log2.append(bigram_LM.perplexity(bigram_corp, alpha))
+
+            plt.subplot(2, 1, 1)
+            plt.plot(np.arange(0.1, 1.1, 0.1), log)
+            plt.title('unigrams of ' + filename, fontdict={'fontsize': 5})
+            plt.ylabel('perplexity')
+            plt.xlabel('alpha')
+
+            plt.subplot(2, 1, 2)
+            plt.plot(np.arange(0.1, 1.1, 0.1), log2)
+            plt.title('bigrams of ' + filename, fontdict={'fontsize': 5})
+            plt.ylabel('perplexity')
+            plt.xlabel('alpha')
+
+            plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95,
+                                hspace=0.25, wspace=0.35)
+            plt.savefig(filename + '_perplexity.png')
+            plt.show()
 
     # Yoda's phrases assessment
     print('\nYODA\'S PHRASES ASSESSMENT')
@@ -245,25 +269,26 @@ if __name__ == '__main__':
     print('\nMINIMUM DIFFERENCE:\n{}\n{}'.format(phrase_min, min_dif))
     print('\nMAXIMUM DIFFERENCE:\n{}\n{}'.format(phrase_max, max_dif))
 
-    plt.figure(1)
+    if plot:
+        plt.figure(1)
 
-    m = 1
-    for pair in [phrase_min, phrase_max]:
-        for phrase in pair:
-            sent = tokenize(phrase)
-            sent.insert(0, '<s>')
-            sent.append('</s>')
-            logs = []
-            for i in range(1, len(sent)):
-                logs.append(-bigram_LM.logP(sent[i - 1], sent[i]))
-            plt.subplot(2, 2, m)
-            plt.plot(range(1, len(sent)), logs)
-            plt.title(phrase, fontdict={'fontsize': 5})
-            plt.ylabel('Negative log probability)')
-            plt.xlabel('Word index')
-            m += 1
+        m = 1
+        for pair in [phrase_min, phrase_max]:
+            for phrase in pair:
+                sent = tokenize(phrase)
+                sent.insert(0, '<s>')
+                sent.append('</s>')
+                logs = []
+                for i in range(1, len(sent)):
+                    logs.append(-bigram_LM.logP(sent[i - 1], sent[i]))
+                plt.subplot(2, 2, m)
+                plt.plot(range(1, len(sent)), logs)
+                plt.title(phrase, fontdict={'fontsize': 5})
+                plt.ylabel('Negative log probability)')
+                plt.xlabel('Word index')
+                m += 1
 
-    plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95,
-                        hspace=0.25, wspace=0.35)
-    plt.savefig('logP(w,h).png')
-    plt.show()
+        plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95,
+                            hspace=0.25, wspace=0.35)
+        plt.savefig('logP(w,h).png')
+        plt.show()
