@@ -245,8 +245,8 @@ if __name__ == '__main__':
     scores = []
     # Handling phrases consisting of several sentences
     for phrase_y, phrase_en in zip(yoda_phrases, eng_phrases):
-        p_y = re.findall(r'\w[\w\s,]+', phrase_y)
-        p_en = re.findall(r'\w[\w\s,]+', phrase_en)
+        p_y = re.findall(r'\w[\w\s,]+', re.sub(r'\.\.\.', '', phrase_y))
+        p_en = re.findall(r'\w[\w\s,]+', re.sub(r'\.\.\.', '', phrase_en))
         if len(p_y) == 0:
             continue
         score_y = sum([bigram_LM.score_sentence(p) for p in p_y]) / len(p_y)
@@ -269,26 +269,26 @@ if __name__ == '__main__':
     print('\nMINIMUM DIFFERENCE:\n{}\n{}'.format(phrase_min, min_dif))
     print('\nMAXIMUM DIFFERENCE:\n{}\n{}'.format(phrase_max, max_dif))
 
-    if plot:
-        plt.figure(1)
+    plt.figure(1)
+    m = 1
+    for pair in [phrase_min, phrase_max]:
+        for phrase in pair:
+            sent = tokenize(phrase)
+            sent.insert(0, '<s>')
+            sent.append('</s>')
+            logs = []
+            for i in range(1, len(sent)):
+                logs.append(-bigram_LM.logP(sent[i - 1], sent[i]))
+            plt.subplot(2, 2, m)
+            plt.plot(range(1, len(sent)), logs)
+            plt.xticks(np.arange(1, len(sent), 1))
+            plt.yticks(np.arange(5, 16, 2.5))
+            plt.title(phrase, fontdict={'fontsize': 5})
+            plt.ylabel('Negative log probability')
+            plt.xlabel('Word index')
+            m += 1
 
-        m = 1
-        for pair in [phrase_min, phrase_max]:
-            for phrase in pair:
-                sent = tokenize(phrase)
-                sent.insert(0, '<s>')
-                sent.append('</s>')
-                logs = []
-                for i in range(1, len(sent)):
-                    logs.append(-bigram_LM.logP(sent[i - 1], sent[i]))
-                plt.subplot(2, 2, m)
-                plt.plot(range(1, len(sent)), logs)
-                plt.title(phrase, fontdict={'fontsize': 5})
-                plt.ylabel('Negative log probability)')
-                plt.xlabel('Word index')
-                m += 1
-
-        plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95,
-                            hspace=0.25, wspace=0.35)
-        plt.savefig('logP(w,h).png')
-        plt.show()
+    plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95,
+                        hspace=0.25, wspace=0.35)
+    plt.savefig('logP(w,h).png')
+    plt.show()
