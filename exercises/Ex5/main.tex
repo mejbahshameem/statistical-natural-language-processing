@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{caption}
+\captionsetup{labelformat=empty}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{adjustbox}
+\usepackage{tabu}
+\usepackage{graphicx}
+\usepackage{float}
+\begin{document}
+\section{Long-Range Dependencies}
+\begin{itemize}
+    \item[a)]
+    since we can use $P_{D}(w_1,w_2)= P(w_1\cap w_2)$ for independend words and further $P(w_1\cap w_2) = P(w_1)*P(w_2)$ the correlation should be 1 for independend words.
+    \item[d)]
+    \includegraphics[width=\textwidth]{figs/correlation.png}
+    The plot shows that the less context 2 words have the lower the correlation is, down to about 1. Further you can observe that a low correlation leads to fewer differences between the values. On the other side the words with high dependency like he and his have a lot of fluctuations.
+    \item[e)]
+    \includegraphics[width=\textwidth]{figs/correlation_log.png}
+    same observations as in d.
+
+\end{itemize}
+\end{document}

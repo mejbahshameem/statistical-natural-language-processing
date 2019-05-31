@@ -8,4 +8,4 @@ exercises/*/statistic*.json
 *.fdb_latexmk
 *.fls
 *.zip
-
+*.png
