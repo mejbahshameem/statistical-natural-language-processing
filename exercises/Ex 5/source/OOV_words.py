@@ -10,7 +10,6 @@ class CorporaHandler:
         self.text_tokens = self.tokenize(text)
         self.train_corpus, self.test_corpus = self.split_train_test()
         self.vocabulary = self.construct_vocabulary()
-        self.vocabulary_size = len(self.vocabulary)
 
     @staticmethod
     def tokenize(text):
