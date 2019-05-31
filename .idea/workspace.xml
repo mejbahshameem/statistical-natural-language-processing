@@ -13,20 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exercises/Ex 5/source/OOV_words.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-897">
-              <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_EX 1.3_Final.zip/EX 1.3_Final/vocabulary_growth.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="85" column="45" lean-forward="true" selection-start-line="85" selection-start-column="45" selection-end-line="86" selection-end-column="35" />
+            <state relative-caret-position="352">
+              <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -307,15 +295,16 @@
       <workItem from="1557998948321" duration="23593000" />
       <workItem from="1558472109568" duration="35204000" />
       <workItem from="1558637164580" duration="13745000" />
-      <workItem from="1559136360982" duration="20250000" />
+      <workItem from="1559136360982" duration="21201000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124056000" />
+    <option name="totallyTimeSpent" value="125007000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22995462" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -336,7 +325,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.18759455" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.5771558" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Coverage" order="5" side_tool="true" />
     </layout>
@@ -401,7 +390,7 @@
     <SUITE FILE_PATH="coverage/SNLP$cryptoanalysis.coverage" NAME="cryptoanalysis Coverage Results" MODIFIED="1558038057962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex2" />
     <SUITE FILE_PATH="coverage/SNLP$ngram_LM__1_.coverage" NAME="ngram_LM (1) Coverage Results" MODIFIED="1559201379532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex4/source" />
     <SUITE FILE_PATH="coverage/SNLP$ngram_LM.coverage" NAME="ngram_LM Coverage Results" MODIFIED="1558534494137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex3/source" />
-    <SUITE FILE_PATH="coverage/SNLP$OOV_words.coverage" NAME="OOV_words Coverage Results" MODIFIED="1559225938512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex 5/source" />
+    <SUITE FILE_PATH="coverage/SNLP$OOV_words.coverage" NAME="OOV_words Coverage Results" MODIFIED="1559304281619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exercises/Ex 5/source" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/exercises/Ex2/plots/emptyhistory.png">
@@ -611,8 +600,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exercises/Ex 5/source/OOV_words.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-897">
-          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        <state relative-caret-position="352">
+          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
