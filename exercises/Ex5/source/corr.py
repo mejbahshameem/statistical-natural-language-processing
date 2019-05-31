@@ -39,20 +39,22 @@ def correlation(w1, w2, D):
     return PD / (Pw1 * Pw2)
 
 
-def plot_moving_average(list, name, log=False):
+def plot_moving_average(list, name, label, log=False):
     n = 5  # group size
     m = 4  # overlap size
-    list = [sum(list[i:i + n]) / n for i in range(0, len(list), n - m)]
+    list = [sum(list[i:i + n]) / n for i in range(0, len(list) - n, n - m)]
     plt.figure(name)
     plt.title('correlation ' + name, fontdict={'fontsize': 10})
     plt.ylabel('correlation')
     if log:
-        plt.plot(np.log(range(1,len(list)+1)), list)
+        plt.semilogx(range(1, len(list) + 1), list, label=label)
+        plt.legend()
         plt.xlabel('Moving average with window 5 of D log scale')
         plt.savefig('../figs/' + name + '.png')
     else:
-        plt.plot(range(1,len(list)+1), list)
+        plt.plot(range(1, len(list) + 1), list, label=label)
         plt.xlabel('Moving average with window 5 of D')
+        plt.legend()
         plt.savefig('../figs/' + name + '.png')
 
 
@@ -61,5 +63,10 @@ for pair in (('you', 'your'), ('he', 'his'), ('she', 'her'), ('they', 'their'), 
     list = [correlation(pair[0], pair[1], i) for i in range(1, 101)]
     print(list)
     if plot:
-        plot_moving_average(list, str(pair), log=False)
-        plot_moving_average(list, str(pair)+'_log', log=True)
+        plot_moving_average(list, 'correlation', str(pair), log=False)
+        plot_moving_average(list, 'correlation' + '_log', str(pair), log=True)
+
+plot_moving_average([1 for i in range(100)],
+                    'correlation', 'independend words', log=False)
+plot_moving_average(
+    [1 for i in range(100)], 'correlation' + '_log', 'independend words', log=True)
