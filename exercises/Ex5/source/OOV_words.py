@@ -10,8 +10,6 @@ class CorporaHandler:
         self.text_tokens = self.tokenize(text)
         self.train_corpus, self.test_corpus = self.split_train_test()
         self.vocabulary = self.construct_vocabulary()
-        self.vocabulary_size = len(self.vocabulary)
-        print(self.vocabulary_size)
 
     @staticmethod
     def tokenize(text):
@@ -25,7 +23,7 @@ class CorporaHandler:
 
     def construct_vocabulary(self):
         vocabulary = Counter(self.train_corpus)
-        return vocabulary.most_common()
+        return vocabulary.most_common(15000)
 
     def oov_rate(self, vocab_size=15000):
         vocabulary = dict(self.vocabulary[:vocab_size])
@@ -39,9 +37,8 @@ class CorporaHandler:
 if __name__ == '__main__':
     print('Computing OOV-rate...')
     plt.figure(1)
-    plt.xlabel('Vocabulary size')
-    # plt.ylabel('Logarithm of OOV-rate')
-    plt.ylabel('OOV-rate')
+    plt.xlabel('Vocabulary size, log')
+    plt.ylabel('OOV-rate, log')
 
     path = '../corpora'
     languages = [('.fi', 'Finnish'), ('.de', 'German'), ('.bg', 'Bulgarian'),
@@ -54,15 +51,14 @@ if __name__ == '__main__':
         handler = CorporaHandler(corpora)
 
         oov_rate_list = []
-        partition = 15000
-        while partition <= handler.vocabulary_size:
-            oov = handler.oov_rate(vocab_size=partition)
-            # oov_rate_list.append(math.log(oov * 100))
-            oov_rate_list.append(oov * 100)
-            partition += 1000
-        plt.plot(range(15000, handler.vocabulary_size, 1000), oov_rate_list, label=lang[1])
+        partition = range(1000, 15001, 1000)
+        for p in partition:
+            oov = handler.oov_rate(vocab_size=p)
+            oov_rate_list.append(math.log(oov * 100))
+        x = [math.log(i) for i in partition]
+        plt.plot(x, oov_rate_list, label=lang[1])
 
-    print('Plotting the graph')
+    print('Plotting the graph...')
     plt.legend(loc='upper right', shadow=True)
     plt.savefig('oov_rate.png')
     plt.show()
