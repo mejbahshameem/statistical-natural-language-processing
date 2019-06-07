@@ -1,0 +1,2 @@
+Run the python file 'Kneser-Ney.py' for generating the data which is used to fill up the table of the question 1.1(b). 
+Locate the directory of 'corpus.sent.en.train' in the corpora variable of the code. 

@@ -1,20 +1,19 @@
 # coding: utf-8
-# SNLP - SoSe 2019 - ASSINGMENT IV
+# SNLP - SoSe 2019 - ASSINGMENT VI
 
-import math
 import re
+import math
 from collections import Counter
-from matplotlib import pyplot as plt
 import nltk
 from nltk.tokenize import sent_tokenize
 import numpy as np
 import os
+from prettytable import PrettyTable, ALL
 
 
 def tokenize(text):
     "List all the word tokens (consecutive letters) in a text. Normalize to lowercase."
     return re.findall('[a-z]+', text.lower())
-
 
 def getLM(file):
     content = readsent(file)
@@ -129,7 +128,7 @@ class ngram_LM:
     def score_sentence(self, sentence):
         """Given a sentence, return score."""
 
-        sent = tokenize(sentence)
+        sent = sent_tokenize(sentence)
         sent.insert(0, '<s>')
         sent.append('</s>')
         M = len(sent)
@@ -194,6 +193,28 @@ class ngram_LM:
         print('Test successful!')
 
 
+def PMI(ngram, author):
+    authors = ['dickens', 'doyle', 'twain']
+    unigram_LMs = [dickunigramLM, doyunigramLM, twainunigramLM]
+    bigram_LMs = [dickbigramLM, doybigramLM, twainbigramLM]
+    if len(ngram) == 1:
+        ngram_h, ngram_w = '', ngram[0]
+        LM = unigram_LMs[authors.index(author)]
+        P_f = dickunigramLM.estimate_prob(ngram_h, ngram_w) \
+              + doyunigramLM.estimate_prob(ngram_h, ngram_w) \
+              + twainunigramLM.estimate_prob(ngram_h, ngram_w)
+    else:
+        ngram_h, ngram_w = ngram[0], ngram[1]
+        LM = bigram_LMs[authors.index(author)]
+        P_f = dickbigramLM.estimate_prob(ngram_h, ngram_w) \
+                  + doybigramLM.estimate_prob(ngram_h, ngram_w) \
+                  + twainbigramLM.estimate_prob(ngram_h, ngram_w)
+
+    P_c = 1 / 3
+    P_f_c = LM.estimate_prob(ngram_h, ngram_w)
+    return math.log(P_f_c / P_c / P_f)
+
+
 if __name__ == '__main__':
     nltk.download('punkt')
     train = '../corpora/train/'
@@ -245,3 +266,36 @@ if __name__ == '__main__':
         print('\n perplexity of '+file+' for Twain LMs')
         print('unigrams:' + str(twainunigramLM.perplexity(unigram_corp, 0.2)))
         print('bigrams:' + str(twainbigramLM.perplexity(bigram_corp, 0.2)))
+    # 2.2 Feature Selection
+
+    unigram_LMs = [dickunigramLM, doyunigramLM, twainunigramLM]
+    bigram_LMs = [dickbigramLM, doybigramLM, twainbigramLM]
+
+    for LMs in [unigram_LMs, bigram_LMs]:
+        counter = Counter()
+        for LM in LMs:
+            for ngram_LM in LM.ngram_counts.most_common(15):
+                counter[ngram_LM[0]] += ngram_LM[1]
+
+        authors = ['dickens', 'doyle', 'twain']
+        PMI_dickens = {}
+        PMI_doyle = {}
+        PMI_twain = {}
+        for ngram, count in counter.items():
+            if count > 15:
+                PMI_dickens[ngram] = round(PMI(ngram, 'dickens'), 4)
+                PMI_doyle[ngram] = round(PMI(ngram, 'doyle'), 4)
+                PMI_twain[ngram] = round(PMI(ngram, 'twain'), 4)
+
+        dickens = sorted(PMI_dickens.items(), key=lambda kv: -kv[1])[:10]
+        doyle = sorted(PMI_doyle.items(), key=lambda kv: -kv[1])[:10]
+        twain = sorted(PMI_twain.items(), key=lambda kv: -kv[1])[:10]
+
+        t = PrettyTable(hrules=ALL)
+        t.title = 'Top 10 ngram features for each author'
+        column_names = ['#', 'Dickens', 'Doyle', 'Twain']
+        t.add_column(column_names[0], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        t.add_column(column_names[1], dickens)
+        t.add_column(column_names[2], doyle)
+        t.add_column(column_names[3], twain)
+        print(t)
