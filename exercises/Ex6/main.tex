@@ -7,8 +7,10 @@
 \usepackage{tabu}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{pdfpages}
 \begin{document}
-\section{}
+\includepdf[pages=-]{REPORT11.pdf}
+\setcounter{section}{1}
 \section{Text Classification}
 \subsection{Author indefication using LMs}
 \begin{itemize}
@@ -66,5 +68,8 @@ TwainLM&1402&1003&\textbf{286}\\\hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
+\item[i)]
+The Lm work quite well,with only one mistake in the unigram (see table).This is most likely caused by the fact that the authors have very different writing style. For example different words to begin the sentences, like you can see in the table of ex 2.2. Important to say that the bigram have a way better result than the unigrams. This is caused by the fact that they have a similar vocabulary in their text and only the combination of the words or the beginning of the sentences show realy big differences between the authors.
 \end{itemize}
+\includepdf[pages=-]{As6ex22.pdf}
 \end{document}
