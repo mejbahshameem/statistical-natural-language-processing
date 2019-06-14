@@ -210,7 +210,7 @@ def PMI(ngram, author):
 
     P_c = 1 / 3
     P_f_c = LM.estimate_prob(ngram_h, ngram_w)
-    return math.log(P_f_c / P_c / P_f)
+    return math.log(P_f_c / P_c / P_f, 2)
 
 
 if __name__ == '__main__':
