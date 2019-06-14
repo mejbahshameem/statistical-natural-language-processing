@@ -24,6 +24,7 @@ def build_counters(corpus_file):
         for row in csv.reader(file):
             cat, title, text = row
             counters[int(cat)].update(tokenize(text + title))
+
         c = counter_world + counter_sports + counter_business + counter_scitech
         for word, count in c.items():
             if count < 3:
@@ -44,13 +45,16 @@ def pmi(f, c, counters):
     return math.log(num_f_c / num_f_total / P_c, 2)
 
 
-def pmi_avg(t, counters):
-    pmi_values = [pmi(t, c, counters) for c in CATEGORIES]
+def pmi_avg(f, counters):
+    pmi_values = [pmi(f, c, counters) for c in CATEGORIES]
     return sum(pmi_values)
 
 
-def pmi_max(t, counters):
-    pmi_values = [(pmi(t, c, counters), c) for c in CATEGORIES]
+def pmi_max(f, counters):
+    '''
+    :return: pair of (max pmi, category)
+    '''
+    pmi_values = [(pmi(f, c, counters), c) for c in CATEGORIES]
     return sorted(pmi_values, key=lambda x: -x[0])[0]
 
 
@@ -62,17 +66,17 @@ if __name__ == "__main__":
     counters = {'Total': counter_total, 'World': counter_world, 'Sports': counter_sports,
                 'Business': counter_business, 'Sci/Tech': counter_scitech}
 
+    # list of (feature, pmi_avg, counts by category)
     pmi_avg_val = [(word[0], pmi_avg(word[0], counters),
                     [count[word[0]] for count in counters.values()][1:])
                    for word in counter_total.most_common()]
+    # list of (feature, pmi_max, category, counts by category)
     pmi_max_val = [(word[0], pmi_max(word[0], counters),
                     [count[word[0]] for count in counters.values()][1:])
                    for word in counter_total.most_common()]
+
     top_pmi_avg = sorted(pmi_avg_val, key=lambda x: (-x[1], -sum(x[2])))[:20]
     top_pmi_max = sorted(pmi_max_val, key=lambda x: (-x[1][0], -sum(x[2])))[:20]
-
-    print(top_pmi_avg)
-    print(top_pmi_max)
 
     print('Top 20 words by expected PMI')
     t = PrettyTable(hrules=ALL)
@@ -85,12 +89,12 @@ if __name__ == "__main__":
     print(t)
 
     print('Top 20 words by maximum PMI')
-    t = PrettyTable(hrules=ALL)
-    t.title = 'Top 20 words by maximum PMI'
+    t1 = PrettyTable(hrules=ALL)
+    t1.title = 'Top 20 words by maximum PMI'
     column_names = ['#', 'Word', 'Maximum PMI', 'Category', 'Counts by categories']
-    t.add_column(column_names[0], range(1, 21))
-    t.add_column(column_names[1], [e[0] for e in top_pmi_max])
-    t.add_column(column_names[2], [e[1][0] for e in top_pmi_max])
-    t.add_column(column_names[3], [e[1][1] for e in top_pmi_max])
-    t.add_column(column_names[4], [e[2] for e in top_pmi_max])
-    print(t)
+    t1.add_column(column_names[0], range(1, 21))
+    t1.add_column(column_names[1], [e[0] for e in top_pmi_max])
+    t1.add_column(column_names[2], [e[1][0] for e in top_pmi_max])
+    t1.add_column(column_names[3], [e[1][1] for e in top_pmi_max])
+    t1.add_column(column_names[4], [e[2] for e in top_pmi_max])
+    print(t1)
