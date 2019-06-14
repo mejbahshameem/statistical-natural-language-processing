@@ -7,8 +7,10 @@
 \usepackage{tabu}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{pdfpages}
 \begin{document}
-\section{}
+\includepdf[pages=-]{REPORT11.pdf}
+\setcounter{section}{1}
 \section{Text Classification}
 \subsection{Author indefication using LMs}
 \begin{itemize}
@@ -35,8 +37,39 @@
 	'with'& 12582&'with', 'a'& 2136&'is'& 12663&'$<s>$', 'but'& 2483&'his'& 10703&'was', 'a'& 2227\\
 	'you'& 12313&'of', 'his'& 2071&'had'& 11265&'that', 'i'& 2348&'but'& 10442&'$<s>$', 'and'& 2170)\\\hline
 
+
+
 \end{tabular}
 \end{adjustbox}
 \end{table}
+\item[f)]
+Unigrams:
+\begin{table}[h]
+\begin{adjustbox}{width=\columnwidth,center}
+\begin{tabular}{|c||c|c|c|}
+\hline&Dickens&Doyle&Twain\\\hline
+DickensLM&\textbf{963}&\textbf{965}&830\\
+DoyleLM&1100&669&865\\
+TwainLM&1033&1001&\textbf{513}\\\hline
+	
+\end{tabular}
+\end{adjustbox}
+\end{table}
+\item[g)]
+Bigrams:
+\begin{table}[h]
+\begin{adjustbox}{width=\columnwidth,center}
+\begin{tabular}{|c||c|c|c|}
+\hline&Dickens&Doyle&Twain\\\hline
+DickensLM&\textbf{1039}&809&919\\
+DoyleLM&1281&\textbf{320}&1017\\
+TwainLM&1402&1003&\textbf{286}\\\hline
+	
+\end{tabular}
+\end{adjustbox}
+\end{table}
+\item[i)]
+The Lm work quite well,with only one mistake in the unigram (see table).This is most likely caused by the fact that the authors have very different writing style. For example different words to begin the sentences, like you can see in the table of ex 2.2. Important to say that the bigram have a way better result than the unigrams. This is caused by the fact that they have a similar vocabulary in their text and only the combination of the words or the beginning of the sentences show realy big differences between the authors.
 \end{itemize}
+\includepdf[pages=-]{As6ex22.pdf}
 \end{document}

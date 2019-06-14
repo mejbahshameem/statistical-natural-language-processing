@@ -6,6 +6,8 @@ import math
 from collections import Counter
 import nltk
 from nltk.tokenize import sent_tokenize
+import numpy as np
+import os
 from prettytable import PrettyTable, ALL
 
 
@@ -239,6 +241,31 @@ if __name__ == '__main__':
     print('\n twain bigrams')
     print(twainbigramLM.ngram_counts.most_common(15))
 
+    for file in os.listdir(test):
+        content = readsent(test+file)
+
+        bigram_corp = []
+        unigram_corp = []
+        unigrams = Counter()
+        bigrams = Counter()
+        for line in content:
+            unigram = word_ngrams(line, 1)
+            bigram = word_ngrams(line, 2)
+            unigram_corp.append(unigram)
+            bigram_corp.append(bigram)
+            unigrams.update(unigram)
+            bigrams.update(bigram)
+        print('\n perplexity of '+file+' for Dickens LMs')
+        print('unigrams:' + str(dickunigramLM.perplexity(unigram_corp, 0.2)))
+        print('bigrams:' + str(dickbigramLM.perplexity(bigram_corp, 0.2)))
+
+        print('\n perplexity of '+file+' for Doyle LMs')
+        print('unigrams:' + str(doyunigramLM.perplexity(unigram_corp, 0.2)))
+        print('bigrams:' + str(doybigramLM.perplexity(bigram_corp, 0.2)))
+
+        print('\n perplexity of '+file+' for Twain LMs')
+        print('unigrams:' + str(twainunigramLM.perplexity(unigram_corp, 0.2)))
+        print('bigrams:' + str(twainbigramLM.perplexity(bigram_corp, 0.2)))
     # 2.2 Feature Selection
 
     unigram_LMs = [dickunigramLM, doyunigramLM, twainunigramLM]
